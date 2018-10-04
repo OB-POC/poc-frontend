@@ -1,10 +1,35 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import Services from '../../services/index';
 import Header from '../Header';
 
 export default class AccountOverview extends React.Component{
+constructor(){
+    super();
+    this.state = {
+        debitData : []
+    }
+}
+
+componentWillMount() {
+    Services.debitcall(function(data){
+        this.setState({debitData : data.banks});
+    }.bind(this),function(err){
+        console.log(err);
+    })
+}
+
 
 render(){
+    var debitData = this.state.debitData.map(function(data,i){
+        return(<tr key={i}><td>{data.bankName}</td>
+            <td>{data.accounts[0].accountType}</td>
+            <td>{data.accounts[0].balance}</td>
+            <td>{data.accounts[0].standingInst}</td>
+            <td>{data.accounts[0].minBalance}</td>
+            <td>{data.accounts[0].interestRate}</td></tr>);
+    })
+
     return(
             <div>
             <Header/>
@@ -26,41 +51,10 @@ render(){
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>HSBC</td>
-                                    <td>PCA</td>
-                                    <td>15000</td>
-                                    <td>2000</td>
-                                    <td>3000</td>
-                                    <td>10000</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Broclays</td>
-                                    <td>PCA</td>
-                                    <td>25000</td>
-                                    <td>5000</td>
-                                    <td>5000</td>
-                                    <td>15000</td>
-                                    <td>0</td>
-                                </tr>
-                                <tr>
-                                    <td>Capital One</td>
-                                    <td>Savings</td>
-                                    <td>10000</td>
-                                    <td>0</td>
-                                    <td>3000</td>
-                                    <td>7000</td>
-                                    <td>1</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Total</strong></td>
-                                    <td></td>
-                                    <td><b>50000</b></td>
-                                    <td><b>50000</b></td>
-                                    <td><b>50000</b></td>
-                                    <td><b>11000</b></td>
-                                </tr>
+                               
+                                
+                                  {debitData}
+                              
                             </tbody>
                     </div>
                     <h6>Total Available Balance: <strong>39000</strong></h6>

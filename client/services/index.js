@@ -8,5 +8,15 @@ module.exports = {
     success:successCb,
     error:errorCb
   })
+ },
+
+ debitcall: function(successCb,errorCb) {
+   $.ajax({
+     type :"GET",
+     url : "http://localhost:3001/accounts/debit",
+     contentType : "application/json",
+     success : successCb,
+     error : errorCb
+   })
  }
 }
