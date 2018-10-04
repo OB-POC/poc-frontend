@@ -1,58 +1,111 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Header from '../Header';
 
 export default class AccountOverview extends React.Component{
-    render(){
-        return(
+
+render(){
+    return(
             <div>
-                <Header/>
-            <div className="container">
-            <div>
-            <div className="table" style={{fontFamily:'WiproAkkurat-Regular'}}>
+            <Header/>
+            <br/>
+            <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-6">
+                  <h5>Saving Balances</h5>
+                    <div className="table">
                             <thead className="table-head">
                                 <tr>
-                                    <th>Poll Name</th>
-                                    <th>Votes</th>
-                                    <th>Actions</th>
+                                    <th>Bank Name</th>
+                                    <th>Type</th>
+                                    <th>Balance</th>
+                                    <th>Min Balance</th>
+                                    <th>Interest%</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>What task do you want to accomplish on this wipboard??</td>
-                                    <td>647</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-
+                                    <td>HSBC</td>
+                                    <td>PCA</td>
+                                    <td>15000</td>
+                                    <td>3000</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
-                                    <td>How can we improve Wipboard?</td>
-                                    <td>589</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-
+                                    <td>Broclays</td>
+                                    <td>PCA</td>
+                                    <td>25000</td>
+                                    <td>5000</td>
+                                    <td>0</td>
                                 </tr>
                                 <tr>
-                                    <td>How visually appealing is our website?</td>
-                                    <td>235</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
+                                    <td>Capital One</td>
+                                    <td>Savings</td>
+                                    <td>10000</td>
+                                    <td>3000</td>
+                                    <td>1</td>
                                 </tr>
                                 <tr>
-                                    <td>Artificial Intelligence: Can it replace humans in industrial jobs?</td>
-                                    <td>765</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>How easy is it to navigate our website?</td>
-                                    <td>543</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>What do you think about the story we tell through our website?</td>
-                                    <td>385</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
+                                    <td><strong>Total</strong></td>
+                                    <td></td>
+                                    <td><b>50000</b></td>
+                                    <td><b>11000</b></td>
                                 </tr>
                             </tbody>
-                        </div>
+                    </div>
+                    <h6>Total Available Balance: <strong>39000</strong></h6>
+                </div>
+                <div className="col-md-6">
+                  <h5>Credit Outstanding</h5>
+                    <div className="table">
+                            <thead className="table-head">
+                                <tr>
+                                    <th>Bank Name</th>
+                                    <th>Type</th>
+                                    <th>Balance Due</th>
+                                    <th>Min Balance Due</th>
+                                    <th>APR</th>
+                                    <th>Due Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Capital One</td>
+                                    <td>C</td>
+                                    <td>5000</td>
+                                    <td>300</td>
+                                    <td>H</td>
+                                    <td>05/10/2018</td>
+                                </tr>
+                                <tr>
+                                    <td>Broclays</td>
+                                    <td>C</td>
+                                    <td>8000</td>
+                                    <td>500</td>
+                                    <td>C</td>
+                                    <td>08/10/2018</td>
+                                </tr>
+                                <tr>
+                                    <td>Capital One</td>
+                                    <td>M</td>
+                                    <td>10000</td>
+                                    <td>10000</td>
+                                    <td>M</td>
+                                    <td>08/10/2018</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Total</strong></td>
+                                    <td></td>
+                                    <td><b>23000</b></td>
+                                    <td><b>10800</b></td>
+                                </tr>
+                            </tbody>
+                    </div>
+                    <h6>Total Balance Due: <strong>23000</strong></h6>
+                </div>
             </div>
-               
+                <br/>
+               <div className="float-right"><Link to='/plan'><button className="btn btn-info">Pay Out Plan</button></Link></div>
             </div>
             </div>
         );
