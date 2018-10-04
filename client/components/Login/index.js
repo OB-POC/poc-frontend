@@ -8,8 +8,20 @@ export default class PayOutPlan extends React.Component{
 onLogin(){
   const username = document.getElementById("username").value
   const pass = document.getElementById("pwd").value
-    if(services.logincall(username,pass).authorised)
-      console.log("loged");
+  var queryData = {
+    username:username,
+    password:pass
+  }
+  services.logincall(queryData,function (response) {
+    if(response.authenticated){
+      sessionStorage.setItem("username",username)
+      sessionStorage.setItem("token",response.token)
+    }else {
+      console.error("not authourised");
+    }
+  },function (err) {
+    throw(err)
+  })
 }
     render(){
         return(

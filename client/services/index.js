@@ -1,14 +1,12 @@
 module.exports = {
- logincall: function(username,pass){
-  const settings = {
-   method: 'POST',
-   headers: {
-    'Content-Type': 'application/json',
-   },
-   body : JSON.stringify({username:username,password:pass})
-  };
-  // const response = await fetch(`http://localhost:8080/login` , settings)
-  // const body = await response.json();
-  return {authorised:true}
+ logincall: function(queryData,successCb,errorCb){
+   $.ajax({
+     type: "POST",
+   url: "http://127.0.0.1:3000/authService/login",
+   body : JSON.stringify({username:queryData.username,password:queryData.password}),
+   contentType: "application/json;",
+    success:successCb,
+    error:errorCb
+  })
  }
 }
