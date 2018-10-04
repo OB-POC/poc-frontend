@@ -33,6 +33,9 @@ handleValue(e) {
                             <thead className="table-head">
                                 <tr>
                                     <th>Savings Accounts</th>
+                                    <th>Available Balance</th>
+                                    <th>Payout Inst.</th>
+                                    <th>Post Payout</th>
                                     <th>Credit Accounts</th>
                                     <th>Credit Outstandings <i className="fas fa-edit" onClick={this.handleEdit}></i></th>
                                 </tr>
@@ -40,31 +43,45 @@ handleValue(e) {
                             <tbody>
                                 <tr>
                                     <td>HSBC</td>
+                                    <td>2000</td>
+                                    <td>1000</td>
+                                    <td style={{backgroundColor:'#f8f8f8'}}>200 Capital One</td>
                                     <td>Capital One</td>
                                     <td>{this.state.edit?<input type='text' value={this.state.creditValue} onChange={this.handleValue}/>:this.state.creditValue}</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td>Broclays</td>
-                                    <td>HSBC</td>
-                                    <td>{this.state.edit?<input type='text' defaultValue='5000'/>:5000}</td>
+                                    <td>2000</td>
+                                    <td>1000</td>
+                                    <td style={{backgroundColor:'#f8f8f8'}}>200 Capital One</td>
+                                    <td>Capital One</td>
+                                    <td>{this.state.edit?<input type='text' value={this.state.creditValue} onChange={this.handleValue}/>:this.state.creditValue}</td>
                                     <td></td>
                                   
                                 </tr>
                                 <tr>
-                                    <td>Capital One</td>
-                                    <td>Broclays</td>
-                                    <td>{this.state.edit?<input type='text' defaultValue='5000'/>:8000}</td>
+                                <td>Capital One</td>
+                                    <td>2000</td>
+                                    <td>1000</td>
+                                    <td style={{backgroundColor:'#f8f8f8'}}>200 Capital One</td>
+                                    <td>HSBC</td>
+                                    <td>{this.state.edit?<input type='text' value={this.state.creditValue} onChange={this.handleValue}/>:this.state.creditValue}</td>
                                     <td></td>
                                    
                                 </tr>
                                 <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td>City Bank</td>
                                     <td>5000</td>
                                     <td></td>
                                 </tr>
                                 <tr>
+                                    <td></td>
+                                    <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>

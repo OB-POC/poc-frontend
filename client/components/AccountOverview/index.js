@@ -13,13 +13,15 @@ render(){
             <div className="row">
                 <div className="col-md-6">
                   <h5>Saving Balances</h5>
-                    <div className="table">
+                    <div className="table" style={{backgroundColor:'#f9f9f9'}}>
                             <thead className="table-head">
                                 <tr>
                                     <th>Bank Name</th>
                                     <th>Type</th>
                                     <th>Balance</th>
+                                    <th>Standing Instructions</th>
                                     <th>Min Balance</th>
+                                    <th>Available Balance</th>
                                     <th>Interest%</th>
                                 </tr>
                             </thead>
@@ -28,7 +30,9 @@ render(){
                                     <td>HSBC</td>
                                     <td>PCA</td>
                                     <td>15000</td>
+                                    <td>2000</td>
                                     <td>3000</td>
+                                    <td>10000</td>
                                     <td>0</td>
                                 </tr>
                                 <tr>
@@ -36,18 +40,24 @@ render(){
                                     <td>PCA</td>
                                     <td>25000</td>
                                     <td>5000</td>
+                                    <td>5000</td>
+                                    <td>15000</td>
                                     <td>0</td>
                                 </tr>
                                 <tr>
                                     <td>Capital One</td>
                                     <td>Savings</td>
                                     <td>10000</td>
+                                    <td>0</td>
                                     <td>3000</td>
+                                    <td>7000</td>
                                     <td>1</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Total</strong></td>
                                     <td></td>
+                                    <td><b>50000</b></td>
+                                    <td><b>50000</b></td>
                                     <td><b>50000</b></td>
                                     <td><b>11000</b></td>
                                 </tr>
@@ -57,7 +67,7 @@ render(){
                 </div>
                 <div className="col-md-6">
                   <h5>Credit Outstanding</h5>
-                    <div className="table">
+                    <div className="table" style={{backgroundColor:'#f9f9f9'}}>
                             <thead className="table-head">
                                 <tr>
                                     <th>Bank Name</th>
