@@ -25,6 +25,12 @@ onLogin(){
   }.bind(this),function (err) {
     throw(new Error(err.responseText))
   })
+  var token = sessionStorage.getItem("token");
+  services.creditCall(token, function(data){
+       console.log(data, "data");;
+   }.bind(this),function(err){
+       console.log(err);
+   })
 }
     render(){
         return(
