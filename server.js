@@ -10,10 +10,16 @@ const webpackConfig = require('./webpack.config.js');
 
 const webpackCompiler = webpack(webpackConfig);
 
+const {
+    port: serverPort
+} = require("./config.json");
+
 var server = http.createServer(app);
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/',express.static(path.join(__dirname, './', 'public')));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use('/', express.static(path.join(__dirname, './', 'public')));
 
 //   app.use(webpackHotMiddleware(webpackCompiler));
 //   app.use(webpackDevMiddleware(webpackCompiler, {
@@ -23,6 +29,6 @@ app.use('/',express.static(path.join(__dirname, './', 'public')));
 //   }));
 
 
-  server.listen(3004,() =>{
-      console.log("Listening on 3000");
-  })
+server.listen(serverPort, () => {
+    console.log(`Listening on ${serverPort}`);
+})
