@@ -1,5 +1,7 @@
 import React from 'react';
 import services from '../../services'
+import { HashRouter as Router } from 'react-router-dom'
+
 export default class PayOutPlan extends React.Component{
   constructor(props){
     super(props);
@@ -16,11 +18,12 @@ onLogin(){
     if(response.authenticated){
       sessionStorage.setItem("username",username)
       sessionStorage.setItem("token",response.token)
+      this.props.history.push("/accounts")
     }else {
       console.error("not authourised");
     }
-  },function (err) {
-    throw(err)
+  }.bind(this),function (err) {
+    throw(new Error(err.responseText))
   })
 }
     render(){
@@ -51,15 +54,15 @@ borderTop: "1px solid rgba(0, 0, 0, 0.1)"
               <h2>Login</h2>
               <div class="form-group">
                 <label for="email">Username</label>
-                <input type="email" class="form-control" id="username"/>
+                <input type="email" class="form-control" defaultValue = "alice" id="username"/>
               </div>
               <div class="form-group">
                 <label for="pwd">Password </label>
-                <input type="password" class="form-control" id="pwd"/>
+                <input type="password" class="form-control" defaultValue = "wonderland" id="pwd"/>
               </div>
               <div class="form-group form-check">
                 <label class="form-check-label">
-                  <input class="form-check-input" type="checkbox"/> Remember me
+                  <input class="form-check-input"  type="checkbox"/> Remember me
                 </label>
               </div>
               <button type="submit" class="btn btn-primary" onClick = {this.onLogin} >Login</button>
