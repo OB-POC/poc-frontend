@@ -1391,7 +1391,7 @@ var Header = function (_React$Component) {
                         _react2.default.createElement(
                             'h5',
                             { className: 'float-left' },
-                            'Account Overview'
+                            'ACCOUNT OVERVIEW'
                         ),
                         _react2.default.createElement(
                             'h6',
@@ -2389,6 +2389,8 @@ var _Header = __webpack_require__(17);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+__webpack_require__(72);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2423,39 +2425,160 @@ var AccountOverview = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            console.log(this.state.debitData);
             var debitData = this.state.debitData.map(function (data, i) {
                 return _react2.default.createElement(
-                    'tr',
-                    { key: i },
+                    'div',
+                    { id: 'accordion' },
                     _react2.default.createElement(
-                        'td',
-                        null,
-                        data.bankName
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        data.accounts[0].accountType
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        data.accounts[0].balance
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        data.accounts[0].standingInst
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        data.accounts[0].minBalance
-                    ),
-                    _react2.default.createElement(
-                        'td',
-                        null,
-                        data.accounts[0].interestRate
+                        'div',
+                        { className: 'card' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card-header', id: 'headingOne' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'row' },
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'col-3' },
+                                    data.bankName
+                                ),
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'col-2' },
+                                    'PCA'
+                                ),
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'col-3' },
+                                    '0.25% ',
+                                    _react2.default.createElement(
+                                        'small',
+                                        null,
+                                        'Interest'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'col-2' },
+                                    _react2.default.createElement(
+                                        'span',
+                                        null,
+                                        '\xA3'
+                                    ),
+                                    '43345'
+                                ),
+                                _react2.default.createElement(
+                                    'h5',
+                                    { className: 'col-2' },
+                                    _react2.default.createElement('i', { className: 'fas fa-caret-down', 'data-toggle': 'collapse', 'data-target': '#collapseOne', 'aria-expanded': 'true', 'aria-controls': 'collapseOne' })
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { id: 'collapseOne', className: 'collapse show', 'aria-labelledby': 'headingOne', 'data-parent': '#accordion' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Club Current Account'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        _react2.default.createElement(
+                                            'small',
+                                            null,
+                                            '(1234567543345)'
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Balance'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-4 float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        '43345'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Standing Instructions'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-4 float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        '43345'
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Minimum Balance'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-4 float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        '43345'
+                                    )
+                                ),
+                                _react2.default.createElement('hr', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Available Balance'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-4 float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        '43345'
+                                    )
+                                )
+                            )
+                        )
                     )
                 );
             });
@@ -2473,78 +2596,17 @@ var AccountOverview = function (_React$Component) {
                         { className: 'row' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-md-6' },
+                            { className: 'col-md-6 savings' },
                             _react2.default.createElement(
                                 'h5',
                                 null,
-                                'Saving Balances'
+                                'Balances'
                             ),
-                            _react2.default.createElement(
-                                'div',
-                                { className: 'table', style: { backgroundColor: '#f9f9f9' } },
-                                _react2.default.createElement(
-                                    'thead',
-                                    { className: 'table-head' },
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Bank Name'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Type'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Balance'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Standing Instructions'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Min Balance'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Available Balance'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Interest%'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tbody',
-                                    null,
-                                    debitData
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'h6',
-                                null,
-                                'Total Available Balance: ',
-                                _react2.default.createElement(
-                                    'strong',
-                                    null,
-                                    '39000'
-                                )
-                            )
+                            debitData
                         ),
                         _react2.default.createElement(
                             'div',
-                            { className: 'col-md-6' },
+                            { className: 'col-md-6 credits' },
                             _react2.default.createElement(
                                 'h5',
                                 null,
@@ -2552,192 +2614,155 @@ var AccountOverview = function (_React$Component) {
                             ),
                             _react2.default.createElement(
                                 'div',
-                                { className: 'table', style: { backgroundColor: '#f9f9f9' } },
+                                { id: 'accordion' },
                                 _react2.default.createElement(
-                                    'thead',
-                                    { className: 'table-head' },
+                                    'div',
+                                    { className: 'card' },
                                     _react2.default.createElement(
-                                        'tr',
-                                        null,
+                                        'div',
+                                        { className: 'card-header', id: 'headingOne' },
                                         _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Bank Name'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Type'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Balance Due'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Min Balance Due'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'APR'
-                                        ),
-                                        _react2.default.createElement(
-                                            'th',
-                                            null,
-                                            'Due Date'
-                                        )
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tbody',
-                                    null,
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'Capital One'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'C'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '5000'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '300'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'H'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '05/10/2018'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'Broclays'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'C'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '8000'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '500'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'C'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '08/10/2018'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'Capital One'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'M'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '10000'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '10000'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            'M'
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
-                                            '08/10/2018'
-                                        )
-                                    ),
-                                    _react2.default.createElement(
-                                        'tr',
-                                        null,
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
+                                            'div',
+                                            { className: 'row' },
                                             _react2.default.createElement(
-                                                'strong',
-                                                null,
-                                                'Total'
+                                                'h5',
+                                                { className: 'col-4' },
+                                                'Hallifax'
+                                            ),
+                                            _react2.default.createElement(
+                                                'h5',
+                                                { className: 'col-2' },
+                                                'CC'
+                                            ),
+                                            _react2.default.createElement(
+                                                'h5',
+                                                { className: 'col-2' },
+                                                '25% ',
+                                                _react2.default.createElement(
+                                                    'small',
+                                                    null,
+                                                    'APR'
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'h5',
+                                                { className: 'col-2' },
+                                                _react2.default.createElement(
+                                                    'span',
+                                                    null,
+                                                    '\xA3'
+                                                ),
+                                                '43345'
+                                            ),
+                                            _react2.default.createElement(
+                                                'h5',
+                                                { className: 'col-2' },
+                                                _react2.default.createElement('i', { className: 'fas fa-caret-down', 'data-toggle': 'collapse', 'data-target': '#collapseTwo', 'aria-expanded': 'true', 'aria-controls': 'collapseTwo' })
                                             )
-                                        ),
-                                        _react2.default.createElement('td', null),
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        'div',
+                                        { id: 'collapseTwo', className: 'collapse show', 'aria-labelledby': 'headingOne', 'data-parent': '#accordion' },
                                         _react2.default.createElement(
-                                            'td',
-                                            null,
+                                            'div',
+                                            { className: 'card-body' },
                                             _react2.default.createElement(
-                                                'b',
-                                                null,
-                                                '23000'
-                                            )
-                                        ),
-                                        _react2.default.createElement(
-                                            'td',
-                                            null,
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'h6',
+                                                    { className: 'col-8 float-left' },
+                                                    'Low Rate'
+                                                ),
+                                                _react2.default.createElement(
+                                                    'p',
+                                                    null,
+                                                    _react2.default.createElement(
+                                                        'small',
+                                                        null,
+                                                        '(1234567543345)'
+                                                    )
+                                                )
+                                            ),
                                             _react2.default.createElement(
-                                                'b',
-                                                null,
-                                                '10800'
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'h6',
+                                                    { className: 'col-8 float-left' },
+                                                    'Credit Limit'
+                                                ),
+                                                _react2.default.createElement(
+                                                    'p',
+                                                    { className: 'col-4 float-right' },
+                                                    _react2.default.createElement(
+                                                        'span',
+                                                        null,
+                                                        '\xA3'
+                                                    ),
+                                                    '43345'
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'h6',
+                                                    { className: 'col-8 float-left' },
+                                                    'Available Credit'
+                                                ),
+                                                _react2.default.createElement(
+                                                    'p',
+                                                    { className: 'col-4 float-right' },
+                                                    _react2.default.createElement(
+                                                        'span',
+                                                        null,
+                                                        '\xA3'
+                                                    ),
+                                                    '43345'
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'h6',
+                                                    { className: 'col-8 float-left' },
+                                                    'Minimum Balance Due'
+                                                ),
+                                                _react2.default.createElement(
+                                                    'p',
+                                                    { className: 'col-4 float-right' },
+                                                    _react2.default.createElement(
+                                                        'span',
+                                                        null,
+                                                        '\xA3'
+                                                    ),
+                                                    '43345'
+                                                )
+                                            ),
+                                            _react2.default.createElement(
+                                                'div',
+                                                { className: 'row' },
+                                                _react2.default.createElement(
+                                                    'h6',
+                                                    { className: 'col-8 float-left' },
+                                                    'Due Date'
+                                                ),
+                                                _react2.default.createElement(
+                                                    'p',
+                                                    { className: 'col-4 float-right' },
+                                                    _react2.default.createElement(
+                                                        'span',
+                                                        null,
+                                                        '\xA3'
+                                                    ),
+                                                    '43345'
+                                                )
                                             )
                                         )
                                     )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'h6',
-                                null,
-                                'Total Balance Due: ',
-                                _react2.default.createElement(
-                                    'strong',
-                                    null,
-                                    '23000'
                                 )
                             )
                         )
@@ -14705,7 +14730,7 @@ exports = module.exports = __webpack_require__(30)(false);
 
 
 // module
-exports.push([module.i, ".header{\r\n    padding-left: 0px;\r\n    padding-right: 0px;\r\n}", ""]);
+exports.push([module.i, ".header{\r\n    padding-left: 0px;\r\n    padding-right: 0px;\r\n}\r\n\r\n.card-header{\r\n    background: #2e2d2d;\r\n    color:#376fdd;\r\n}", ""]);
 
 // exports
 
@@ -15204,6 +15229,70 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         _react2.default.createElement(_reactRouterDom.Route, { path: '/plan', component: _PayOutPlan2.default })
     )
 ), document.getElementById('root'));
+
+/***/ },
+/* 71 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(30)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".savings{\r\n    border: 4px solid #b1e0e0;\r\n    background: #f9f9f9;\r\n    margin-top: 5px;\r\n    margin-bottom: 5px;\r\n}\r\n\r\n.credits{\r\n    border: 4px solid #ffcccc;\r\n    background: #f9f9f9;\r\n    margin-top: 5px;\r\n    margin-bottom: 5px;\r\n}", ""]);
+
+// exports
+
+
+/***/ },
+/* 72 */
+/***/ function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(71);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(69)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./style.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./style.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }
 /******/ ]);

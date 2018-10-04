@@ -3,6 +3,8 @@ import {Link} from 'react-router-dom';
 import Services from '../../services/index';
 import Header from '../Header';
 
+import './style.css';
+
 export default class AccountOverview extends React.Component{
 constructor(){
     super();
@@ -21,13 +23,48 @@ componentWillMount() {
 
 
 render(){
+    console.log(this.state.debitData)
     var debitData = this.state.debitData.map(function(data,i){
-        return(<tr key={i}><td>{data.bankName}</td>
-            <td>{data.accounts[0].accountType}</td>
-            <td>{data.accounts[0].balance}</td>
-            <td>{data.accounts[0].standingInst}</td>
-            <td>{data.accounts[0].minBalance}</td>
-            <td>{data.accounts[0].interestRate}</td></tr>);
+        return(  <div id="accordion">
+        <div className="card">
+        <div className="card-header" id="headingOne">
+        <div className='row'>
+            <h5 className="col-3">{data.bankName}</h5>
+            <h5 className="col-2">PCA</h5>
+            <h5 className="col-3">0.25% <small>Interest</small></h5>
+            <h5 className="col-2"><span>&#163;</span>43345</h5>
+            <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"></i></h5> 
+          </div>
+        </div>
+        <div id="collapseOne" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div className="card-body">
+                <div className='row'>
+                <h6 className='col-8 float-left'>Club Current Account</h6>
+                <p><small>(1234567543345)</small></p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Standing Instructions</h6>
+                <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Minimum Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                </div>
+                <hr/>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Available Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                </div>
+              
+     
+            </div>
+        </div>
+    </div>
+    </div>);
     })
 
     return(
@@ -36,76 +73,52 @@ render(){
             <br/>
             <div className="container-fluid">
             <div className="row">
-                <div className="col-md-6">
-                  <h5>Saving Balances</h5>
-                    <div className="table" style={{backgroundColor:'#f9f9f9'}}>
-                            <thead className="table-head">
-                                <tr>
-                                    <th>Bank Name</th>
-                                    <th>Type</th>
-                                    <th>Balance</th>
-                                    <th>Standing Instructions</th>
-                                    <th>Min Balance</th>
-                                    <th>Available Balance</th>
-                                    <th>Interest%</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               
-                                
-                                  {debitData}
-                              
-                            </tbody>
-                    </div>
-                    <h6>Total Available Balance: <strong>39000</strong></h6>
+                <div className="col-md-6 savings">
+                  <h5>Balances</h5>
+                    {debitData}
                 </div>
-                <div className="col-md-6">
+
+                <div className="col-md-6 credits">
                   <h5>Credit Outstanding</h5>
-                    <div className="table" style={{backgroundColor:'#f9f9f9'}}>
-                            <thead className="table-head">
-                                <tr>
-                                    <th>Bank Name</th>
-                                    <th>Type</th>
-                                    <th>Balance Due</th>
-                                    <th>Min Balance Due</th>
-                                    <th>APR</th>
-                                    <th>Due Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Capital One</td>
-                                    <td>C</td>
-                                    <td>5000</td>
-                                    <td>300</td>
-                                    <td>H</td>
-                                    <td>05/10/2018</td>
-                                </tr>
-                                <tr>
-                                    <td>Broclays</td>
-                                    <td>C</td>
-                                    <td>8000</td>
-                                    <td>500</td>
-                                    <td>C</td>
-                                    <td>08/10/2018</td>
-                                </tr>
-                                <tr>
-                                    <td>Capital One</td>
-                                    <td>M</td>
-                                    <td>10000</td>
-                                    <td>10000</td>
-                                    <td>M</td>
-                                    <td>08/10/2018</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Total</strong></td>
-                                    <td></td>
-                                    <td><b>23000</b></td>
-                                    <td><b>10800</b></td>
-                                </tr>
-                            </tbody>
+                  <div id="accordion">
+                    <div className="card">
+                    <div className="card-header" id="headingOne">
+                    <div className='row'>
+                        <h5 className="col-4">Hallifax</h5>
+                        <h5 className="col-2">CC</h5>
+                        <h5 className="col-2">25% <small>APR</small></h5>
+                        <h5 className="col-2"><span>&#163;</span>43345</h5>
+                        <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></i></h5> 
+                      </div>
                     </div>
-                    <h6>Total Balance Due: <strong>23000</strong></h6>
+                    <div id="collapseTwo" className="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div className="card-body">
+                            <div className='row'>
+                            <h6 className='col-8 float-left'>Low Rate</h6>
+                            <p><small>(1234567543345)</small></p>
+                            </div>
+                            <div className='row'>
+                            <h6 className='col-8 float-left'>Credit Limit</h6>
+                            <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                            </div>
+                            <div className='row'>
+                            <h6 className='col-8 float-left'>Available Credit</h6>
+                            <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                            </div>
+                            <div className='row'>
+                            <h6 className='col-8 float-left'>Minimum Balance Due</h6>
+                            <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                            </div>
+                            <div className='row'>
+                            <h6 className='col-8 float-left'>Due Date</h6>
+                            <p className='col-4 float-right'><span>&#163;</span>43345</p>
+                            </div>
+                          
+                 
+                        </div>
+                    </div>
+                </div>
+                </div>
                 </div>
             </div>
                 <br/>
