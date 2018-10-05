@@ -1387,7 +1387,7 @@ var Header = function (_React$Component) {
                     { className: 'card' },
                     _react2.default.createElement(
                         'div',
-                        { className: 'card-header' },
+                        { className: 'card-header heading' },
                         _react2.default.createElement(
                             'h5',
                             { className: 'float-left' },
@@ -2940,7 +2940,7 @@ var AccountOverview = function (_React$Component) {
                         { className: 'card' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'card-header', id: 'headingOne' },
+                            { className: 'card-header heading', id: 'headingOne' },
                             _react2.default.createElement(
                                 'div',
                                 { className: 'row' },
@@ -2978,7 +2978,7 @@ var AccountOverview = function (_React$Component) {
                                 _react2.default.createElement(
                                     'h5',
                                     { className: 'col-2' },
-                                    _react2.default.createElement('i', { className: 'fas fa-caret-down', 'data-toggle': 'collapse', 'data-target': "#" + i + "d", 'aria-expanded': 'false', 'aria-controls': i + "d" })
+                                    _react2.default.createElement('i', { className: 'fas fa-caret-down', 'data-toggle': 'collapse', 'data-target': "#" + i + "d", 'aria-expanded': 'true', 'aria-controls': i + "d" })
                                 )
                             )
                         ),
@@ -3098,7 +3098,7 @@ var AccountOverview = function (_React$Component) {
                         { className: 'card' },
                         _react2.default.createElement(
                             'div',
-                            { className: 'card-header', id: 'headingOne' },
+                            { className: 'card-header heading', id: 'headingOne' },
                             _react2.default.createElement(
                                 'div',
                                 { className: 'row' },
@@ -3281,14 +3281,32 @@ var AccountOverview = function (_React$Component) {
                     _react2.default.createElement('br', null),
                     _react2.default.createElement(
                         'div',
-                        { className: 'float-right' },
+                        { className: 'row' },
                         _react2.default.createElement(
-                            _reactRouterDom.Link,
-                            { to: '/plan' },
+                            'div',
+                            { className: 'col-6' },
                             _react2.default.createElement(
-                                'button',
-                                { className: 'btn btn-info' },
-                                'Pay Out Plan'
+                                _reactRouterDom.Link,
+                                { to: '/plan' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn btn-info float-right' },
+                                    'Pay Out Plan'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col-6' },
+                            ' ',
+                            _react2.default.createElement(
+                                _reactRouterDom.Link,
+                                { to: '/' },
+                                _react2.default.createElement(
+                                    'button',
+                                    { className: 'btn btn-default' },
+                                    'Back'
+                                )
                             )
                         )
                     )
@@ -3480,6 +3498,8 @@ var _Header = __webpack_require__(17);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+__webpack_require__(74);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -3530,206 +3550,405 @@ var PayOutPlan = function (_React$Component) {
                         'div',
                         { className: 'row' },
                         _react2.default.createElement(
-                            'center',
-                            { className: 'table' },
+                            'div',
+                            { className: 'card col-xs-4 match-card' },
                             _react2.default.createElement(
-                                'thead',
-                                { className: 'table-head' },
+                                'div',
+                                { className: 'card-header match-header' },
                                 _react2.default.createElement(
-                                    'tr',
-                                    null,
+                                    'b',
+                                    { className: 'float-left' },
+                                    'Low Rate (Barclays)'
+                                ),
+                                _react2.default.createElement('i', { className: 'far fa-check-square fa-2x float-right', style: { color: "#0ACA24" } })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
                                     _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Savings Accounts'
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Outstandings '
                                     ),
                                     _react2.default.createElement(
-                                        'th',
+                                        'h6',
                                         null,
-                                        'Available Balance'
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 5200'
+                                    )
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Payoff from : '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'Hallifax (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 1000)'
                                     ),
                                     _react2.default.createElement(
-                                        'th',
+                                        'p',
                                         null,
-                                        'Payout Inst.'
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 200 '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'HSBC (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 6000)'
                                     ),
                                     _react2.default.createElement(
-                                        'th',
+                                        'p',
                                         null,
-                                        'Post Payout'
-                                    ),
-                                    _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Credit Accounts'
-                                    ),
-                                    _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Credit Outstandings ',
-                                        _react2.default.createElement('i', { className: 'fas fa-edit', onClick: this.handleEdit })
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 5000 '
                                     )
                                 )
                             ),
                             _react2.default.createElement(
-                                'tbody',
-                                null,
+                                'div',
+                                { className: 'card-footer match-footer' },
                                 _react2.default.createElement(
-                                    'tr',
-                                    null,
+                                    'div',
+                                    { className: 'row' },
                                     _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'HSBC'
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Balance Due'
                                     ),
                                     _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '2000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '1000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { style: { backgroundColor: '#f8f8f8' } },
-                                        '200 Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        this.state.edit ? _react2.default.createElement('input', { type: 'text', value: this.state.creditValue, onChange: this.handleValue }) : this.state.creditValue
-                                    ),
-                                    _react2.default.createElement('td', null)
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'Broclays'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '2000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '1000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { style: { backgroundColor: '#f8f8f8' } },
-                                        '200 Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        this.state.edit ? _react2.default.createElement('input', { type: 'text', value: this.state.creditValue, onChange: this.handleValue }) : this.state.creditValue
-                                    ),
-                                    _react2.default.createElement('td', null)
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '2000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '1000'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        { style: { backgroundColor: '#f8f8f8' } },
-                                        '200 Capital One'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'HSBC'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        this.state.edit ? _react2.default.createElement('input', { type: 'text', value: this.state.creditValue, onChange: this.handleValue }) : this.state.creditValue
-                                    ),
-                                    _react2.default.createElement('td', null)
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'City Bank'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '5000'
-                                    ),
-                                    _react2.default.createElement('td', null)
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null),
-                                    _react2.default.createElement('td', null)
+                                        'h6',
+                                        { style: { color: '#0ACA24' }, className: 'float-right' },
+                                        _react2.default.createElement(
+                                            'b',
+                                            null,
+                                            ' ',
+                                            _react2.default.createElement(
+                                                'span',
+                                                null,
+                                                '\xA3'
+                                            ),
+                                            ' 0'
+                                        )
+                                    )
                                 )
-                            ),
-                            _react2.default.createElement(
-                                'h6',
-                                null,
-                                'Accumulated Savings:',
-                                _react2.default.createElement(
-                                    'b',
-                                    null,
-                                    '11000'
-                                )
-                            ),
-                            _react2.default.createElement('br', null),
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card col-xs-4 match-card' },
                             _react2.default.createElement(
                                 'div',
-                                null,
+                                { className: 'card-header match-header' },
                                 _react2.default.createElement(
-                                    'button',
-                                    { className: 'btn btn-info' },
-                                    'Make Payment'
+                                    'b',
+                                    { className: 'float-left' },
+                                    'Home Loan (HSBC)'
+                                ),
+                                _react2.default.createElement('i', { className: 'far fa-check-square fa-2x float-right', style: { color: "#0ACA24" } })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Outstandings '
+                                    ),
+                                    _react2.default.createElement(
+                                        'h6',
+                                        null,
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 5200'
+                                    )
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Payoff from : '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'Hallifax (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 1000)'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 800 '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'HSBC (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 6000)'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 1000 '
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-footer match-footer' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Balance Due'
+                                    ),
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { style: { color: '#0ACA24' }, className: 'float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 0'
+                                    )
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'card col-xs-4 match-card' },
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-header match-header' },
+                                _react2.default.createElement(
+                                    'b',
+                                    { className: 'float-left' },
+                                    'Home Loan (HSBC)'
+                                ),
+                                _react2.default.createElement('i', { className: 'far fa-check-square fa-2x float-right', style: { color: "#0ACA24" } })
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-body' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Outstandings '
+                                    ),
+                                    _react2.default.createElement(
+                                        'h6',
+                                        null,
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 5200'
+                                    )
+                                ),
+                                _react2.default.createElement('br', null),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Payoff from : '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'Hallifax (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 1000)'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 800 '
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'p',
+                                        { className: 'col-8 float-left' },
+                                        'HSBC (',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 6000)'
+                                    ),
+                                    _react2.default.createElement(
+                                        'p',
+                                        null,
+                                        '(-) ',
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 1000 '
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'div',
+                                { className: 'card-footer match-footer' },
+                                _react2.default.createElement(
+                                    'div',
+                                    { className: 'row' },
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { className: 'col-8 float-left' },
+                                        'Balance Due'
+                                    ),
+                                    _react2.default.createElement(
+                                        'h6',
+                                        { style: { color: '#0ACA24' }, className: 'float-right' },
+                                        _react2.default.createElement(
+                                            'span',
+                                            null,
+                                            '\xA3'
+                                        ),
+                                        ' 0'
+                                    )
                                 )
                             )
                         )
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement(
+                        'center',
+                        null,
+                        ' ',
+                        _react2.default.createElement(
+                            'h6',
+                            { style: { fontSize: '22px' } },
+                            ' ',
+                            _react2.default.createElement(
+                                'b',
+                                { style: { color: '#0ACA24', fontSize: '22px' } },
+                                'Congratulations'
+                            ),
+                            ', By following the best match practice , you will be saving ',
+                            _react2.default.createElement(
+                                'span',
+                                null,
+                                '\xA3'
+                            ),
+                            '200'
+                        ),
+                        '   '
+                    ),
+                    _react2.default.createElement(
+                        'button',
+                        { className: 'btn btn-info float-right' },
+                        'Make Payment'
                     )
                 )
             );
@@ -15176,7 +15395,7 @@ exports = module.exports = __webpack_require__(19)(false);
 
 
 // module
-exports.push([module.i, ".header{\r\n    padding-left: 0px;\r\n    padding-right: 0px;\r\n}\r\n\r\n.card-header{\r\n    background: #2e2d2d;\r\n    color:#376fdd;\r\n}", ""]);
+exports.push([module.i, ".header{\r\n    padding-left: 0px;\r\n    padding-right: 0px;\r\n}\r\n\r\n.heading{\r\n    background: #2e2d2d;\r\n    color:#376fdd;\r\n}", ""]);
 
 // exports
 
@@ -15321,6 +15540,70 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         _react2.default.createElement(_reactRouterDom.Route, { path: '/plan', component: _PayOutPlan2.default })
     )
 ), document.getElementById('root'));
+
+/***/ },
+/* 73 */
+/***/ function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(19)(false);
+// imports
+
+
+// module
+exports.push([module.i, ".match-card{\r\n    margin: 10px;\r\n    width: 30%\r\n    \r\n}\r\n\r\n.match-header{\r\n    background: #3f3e3e;\r\n    color: #fff;\r\n}\r\n\r\n.match-footer{\r\n    background: #858282;\r\n}", ""]);
+
+// exports
+
+
+/***/ },
+/* 74 */
+/***/ function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(73);
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(27)(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {
+	module.hot.accept("!!../../../node_modules/css-loader/index.js!./style.css", function() {
+		var newContent = require("!!../../../node_modules/css-loader/index.js!./style.css");
+
+		if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+
+		var locals = (function(a, b) {
+			var key, idx = 0;
+
+			for(key in a) {
+				if(!b || a[key] !== b[key]) return false;
+				idx++;
+			}
+
+			for(key in b) idx--;
+
+			return idx === 0;
+		}(content.locals, newContent.locals));
+
+		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
+
+		update(newContent);
+	});
+
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ }
 /******/ ]);

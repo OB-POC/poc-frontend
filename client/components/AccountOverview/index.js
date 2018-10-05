@@ -35,13 +35,13 @@ render(){
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
         <div className="card">
-        <div className="card-header" id="headingOne">
+        <div className="card-header heading" id="headingOne">
         <div className='row'>
             <h5 className="col-3">{data.bankName}</h5>
             <h5 className="col-2">{data.accounts[0].accountType}</h5>
             <h5 className="col-3">{data.accounts[0].interestRate}% <small>Interest</small></h5>
             <h5 className="col-2"><span>&#163;</span>{data.accounts[0].availableBalance}</h5>
-            <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="false" aria-controls={i+"d"}></i></h5> 
+            <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" aria-controls={i+"d"}></i></h5> 
           </div>
         </div>
         <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -77,7 +77,7 @@ render(){
         return(
             <div id="accordion">
             <div className="card">
-            <div className="card-header" id="headingOne">
+            <div className="card-header heading" id="headingOne">
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
                 <h5 className="col-2">{data.accounts[0].accountType}</h5>
@@ -134,7 +134,8 @@ render(){
                 </div>
             </div>
                 <br/>
-               <div className="float-right"><Link to='/plan'><button className="btn btn-info">Pay Out Plan</button></Link></div>
+               <div className='row'><div className='col-6'><Link to='/plan'><button className="btn btn-info float-right">Pay Out Plan</button></Link></div>
+            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>
             </div>
             </div>
         );

@@ -6,7 +6,7 @@ export default class Header extends React.Component{
         return(
             <div className="container-fluid header">
             <div className="card">
-                <div className="card-header">
+                <div className="card-header heading">
                     <h5 className="float-left">ACCOUNT OVERVIEW</h5>
                     <h6 className="float-right">Logout</h6>
                 </div>
