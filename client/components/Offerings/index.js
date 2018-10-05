@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter,Table } from 'reactstrap';
 //import './style.css'
+import ReactLoading from 'react-loading'
 
 export default class Offerings extends React.Component{
 
@@ -51,6 +52,7 @@ toggle() {
                             {message}
                         </div>
                         <center className="table">
+                            <ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} />
                             <Jumbotron style={{marginLeft:'30px',marginRight:'30px',width:'800px'}}>
                                 <h1 className="display-3">LBG BANK</h1>
                                 <p className="lead" style={{padding:'20px'}}>{infoHeading}</p>
