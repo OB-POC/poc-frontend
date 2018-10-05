@@ -19,7 +19,10 @@ module.exports = {
             {
 				test: /\.css$/,
 				loaders: 'style-loader!css-loader',
-			}
+			},{
+             test: /\.(jpe?g|gif|png|otf|ttf)$/,
+             loader: 'file-loader'
+            }
         ]
     },
     devtool: 'source-map'

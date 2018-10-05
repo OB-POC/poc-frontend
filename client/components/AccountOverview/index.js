@@ -1,17 +1,39 @@
 import React from 'react';
+import ReactDOM from 'react-dom'
 import {Link} from 'react-router-dom';
 import Services from '../../services/index';
 import Header from '../Header';
+import ReactLoading from 'react-loading'
 
 import './style.css';
+import PayOutPlan from '../PayOutPlan';
 
 export default class AccountOverview extends React.Component{
-constructor(){
-    super();
+constructor(props){
+    super(props);
     this.state = {
         debitData : [],
-        creditData : []
+        creditData : [],
+        arrow: 'fas fa-caret-down',
+        downArrow: 'fas fa-caret-up',
+        flag: false,
+        payButton : true,
+        load : true
     }
+   this.handleScrollToElement = this.handleScrollToElement.bind(this);
+   this.accClick = this.accClick.bind(this);
+}
+
+handleScrollToElement(event) {
+    event.preventDefault()
+    const tesNode = ReactDOM.findDOMNode(this.inputElement)
+      tesNode.scrollIntoView();   
+      this.setState({load:false}); 
+      setTimeout(function(){
+        this.setState({load:true}); 
+        this.setState({payButton:false});
+        tesNode.scrollIntoView(); 
+    }.bind(this),2000);  
 }
 
 componentWillMount() {
@@ -29,19 +51,34 @@ componentWillMount() {
     })
 }
 
-
+accClick(obj){
+    if(this.state.flag){
+    document.getElementById(obj).className = 'fas fa-caret-down';
+    this.setState({
+        flag: false
+    })
+    }
+    else{
+    document.getElementById(obj).className = 'fas fa-caret-up';
+    this.setState({
+        flag: true
+    })
+    }
+    
+}
 render(){
- 
+    var context = this
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
         <div className="card">
-        <div className="card-header" id="headingOne">
+        <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" 
+        aria-controls={i+"d"} onClick={context.accClick.bind(context,i+"dd")} tabIndex='1'>
         <div className='row'>
             <h5 className="col-3">{data.bankName}</h5>
             <h5 className="col-2">{data.accounts[0].accountType}</h5>
             <h5 className="col-3">{data.accounts[0].interestRate}% <small>Interest</small></h5>
             <h5 className="col-2"><span>&#163;</span>{data.accounts[0].availableBalance}</h5>
-            <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="false" aria-controls={i+"d"}></i></h5> 
+            <h5 className="col-2"><i id = {i+"dd"} className='fas fa-caret-down'></i></h5> 
           </div>
         </div>
         <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -66,24 +103,24 @@ render(){
                 <div className='row'>
                 <h6 className='col-8 float-left'>Available Balance</h6>
                 <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].availableBalance}</p>
-                </div>    
+                </div>
             </div>
         </div>
     </div>
     </div>);
     })
-
     var creditData = this.state.creditData.map(function(data,i){
         return(
             <div id="accordion">
             <div className="card">
-            <div className="card-header" id="headingOne">
+            <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"} 
+            onClick={context.accClick.bind(context,i+"cc")} tabIndex='1'>
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
                 <h5 className="col-2">{data.accounts[0].accountType}</h5>
                 <h5 className="col-2">{data.accounts[0].apr}% <small>APR</small></h5>
                 <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
-                <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"}></i></h5> 
+                <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5> 
               </div>
             </div>
             <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -108,8 +145,8 @@ render(){
                     <h6 className='col-8 float-left'>Due Date</h6>
                     <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].dueDate}</p>
                     </div>
-                  
-         
+
+
                 </div>
             </div>
         </div>
@@ -119,7 +156,7 @@ render(){
 
     return(
             <div>
-            <Header/>
+            <Header history = {this.props.history}/>
             <br/>
             <div className="container-fluid">
             <div className="row">
@@ -134,7 +171,13 @@ render(){
                 </div>
             </div>
                 <br/>
-               <div className="float-right"><Link to='/plan'><button className="btn btn-info">Pay Out Plan</button></Link></div>
+                {this.state.payButton?
+               <div className='row'><div className='col-6'><button className="btn btn-dark float-right"  style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
+            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>:<PayOutPlan/>}
+            </div>
+            <div ref={input => this.inputElement = input}>
+               {this.state.load?null:<center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>}
+                
             </div>
             </div>
         );

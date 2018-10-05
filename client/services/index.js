@@ -3,7 +3,7 @@ module.exports = {
    console.log(JSON.stringify({username:queryData.username,password:queryData.password}));
    $.ajax({
      type: "POST",
-   url: "http://127.0.0.1:3000/authService/login",
+   url: "http://127.0.0.1:3000/login",
    datatype: "json",
    data : queryData,
     success:successCb,
@@ -13,7 +13,7 @@ module.exports = {
 debitCall: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"GET",
-    url : "http://127.0.0.1:3001/accountsService/debit",
+    url : "http://127.0.0.1:3001/debit",
     headers: {"x-access-token": queryData},
     contentType : "application/json",
     success : successCb,
@@ -23,7 +23,7 @@ debitCall: function(queryData,successCb,errorCb) {
 creditCall: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"GET",
-    url : "http://127.0.0.1:3001/accountsService/credit",
+    url : "http://127.0.0.1:3001/credit",
     headers: {"x-access-token": queryData},
     contentType : "application/json",
     success : successCb,

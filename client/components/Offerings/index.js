@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter,Table } from 'reactstrap';
 //import './style.css'
+import ReactLoading from 'react-loading'
 
 export default class Offerings extends React.Component{
 
@@ -23,7 +24,7 @@ constructor(){
 }
 
 componentDidMount(){
-    
+
 }
 
 
@@ -47,17 +48,79 @@ toggle() {
            <div className="container-fluid">
            <div className="row">
                     <div className='col-md-12'>
-                        <div style={{marginBottom:'80px',marginLeft:'30px',marginRight:'30px'}}>
-                            {message}
-                        </div>
-                        <center className="table">
-                            <Jumbotron style={{marginLeft:'30px',marginRight:'30px',width:'800px'}}>
-                                <h1 className="display-3">LBG BANK</h1>
-                                <p className="lead" style={{padding:'20px'}}>{infoHeading}</p>
-                                <p className="lead">
-                                </p>
+                    <center style = {{paddingBottom : '15px'}}>
+                    <img style = {{height:'150px',width:'150px'}} src = 'images/success.png' />
+                    <h1> Payment Successful</h1>
+                    </center>
+                        <Jumbotron style={{marginLeft:'30px',marginRight:'30px',padding:'0px',backgroundColor:'yellow'}}>
+
+                            <p className="lead" style={{padding:'20px'}}>{message}</p>
+                        </Jumbotron>
+                        <Jumbotron style={{paddingTop:'20px',marginLeft:'30px',marginRight:'30px'}}>
+                              <h3>Offerings</h3>
+                                <Jumbotron style={{backgroundColor:'white',marginTop:'20px',paddingTop:'20px'}}>
+                                <div className='row'>
+                                  <div className='col-10'>
+                                    <p style={{color:'#649c00',marginBottom:'10px',fontWeight:'400'}}>LLOYDS BANK PLATINUM CREDIT CARD</p>
+                                    <h3 style={{color:'#006a4d'}}>0% Purchase and Balance transfer</h3>
+                                    <p className="lead">
+                                    </p>
+                                  </div>
+                                  <div className='col-2'>
+                                    <img style = {{width:'110px',height:'96px' }}src = 'images/card.png'/>
+                                  </div>
+
+                                </div>
+                                <div className = 'row' style={{margin:'20px'}}>
+                                  <div className='col-4'>
+                                    <p><b>Balance transfer offer</b></p>
+                                    <h3 style={{color:"#649c00"}}>0% for up to 20 months</h3>
+                                    <p>on balance transfers made within 90 days of account opening</p>
+                                  </div>
+                                  <div className='col-4'>
+                                    <p><b>Balance transfer offer</b></p>
+                                    <h3 style={{color:"#649c00"}}>0% for up to 20 months</h3>
+                                    <p>on balance transfers made within 90 days of account opening</p>
+                                  </div>
+                                  <div className='col-4'>
+                                    <p><b>Balance transfer offer</b></p>
+                                    <h3 style={{color:"#649c00"}}>0% for up to 20 months</h3>
+                                    <p>on balance transfers made within 90 days of account opening</p>
+                                  </div>
+                                </div>
+                                <Jumbotron style={{backgroundColor:"#006a4d",color:'#FFFFFF',position:"relative"}}>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'13px'}}>
+                                a variable annual
+                                purchase rate of
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'30px'}}>
+                                  19.94%
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'13px'}}>
+                                and a variable
+                                representative
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '150px',padding:'0px',display:'flex',alignItems:'center',fontSize:'30px'}}>
+                                  19.9%APR
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'13px'}}>
+                                based on
+                                borrowing
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'30px'}}>
+                                  £1,200
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '125px',padding:'0px',display:'flex',alignItems:'center',fontSize:'13px'}}>
+                                over 12 months, with
+                                an annual fee of
+                                </div>
+                                <div style={{marginLeft:"7px",float:"left",width : '100px',padding:'0px',display:'flex',alignItems:'center',fontSize:'30px'}}>
+                                  £1,200
+                                </div>
+
+                                </Jumbotron>
+                                </Jumbotron>
                             </Jumbotron>
-                        </center>
                         <center>
                             <h6>Estimates Savings Savings:
                                     <b>11000</b></h6>
@@ -68,13 +131,13 @@ toggle() {
                                 {
                                     modal?
                                     <div>
-                                    {user=='debit' ? 
+                                    {user=='debit' ?
 
                                     <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                         <ModalHeader toggle={this.toggle} >New savings account plan info</ModalHeader>
                                         <ModalBody>
                                             <div className='headerStyle'>
-                                                
+
                                             </div>
                                             <Table bordered>
                                                 <thead>
@@ -103,7 +166,7 @@ toggle() {
                                         <ModalHeader toggle={this.toggle} >New credit accounts plan info</ModalHeader>
                                         <ModalBody>
                                             <div className='headerStyle'>
-                                                
+
                                             </div>
                                             <Table bordered>
                                                 <thead>
