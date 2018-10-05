@@ -1,9 +1,11 @@
+import config from '../config.js'
 module.exports = {
  logincall: function(queryData,successCb,errorCb){
    console.log(JSON.stringify({username:queryData.username,password:queryData.password}));
+   console.log(config.loginUrl+"/login");
    $.ajax({
      type: "POST",
-   url: "http://127.0.0.1:3000/authService/login",
+   url: config.loginUrl+"/login",
    datatype: "json",
    data : queryData,
     success:successCb,
@@ -13,7 +15,7 @@ module.exports = {
 debitCall: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"GET",
-    url : "http://127.0.0.1:3001/accountsService/debit",
+    url : config.accountUrl+"/debit",
     headers: {"x-access-token": queryData},
     contentType : "application/json",
     success : successCb,
@@ -23,7 +25,7 @@ debitCall: function(queryData,successCb,errorCb) {
 creditCall: function(queryData,successCb,errorCb) {
   $.ajax({
     type :"GET",
-    url : "http://127.0.0.1:3001/accountsService/credit",
+    url : config.accountUrl+"/credit",
     headers: {"x-access-token": queryData},
     contentType : "application/json",
     success : successCb,
