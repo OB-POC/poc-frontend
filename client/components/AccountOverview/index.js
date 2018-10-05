@@ -8,8 +8,8 @@ import ReactLoading from 'react-loading'
 import './style.css';
 
 export default class AccountOverview extends React.Component{
-constructor(){
-    super();
+constructor(props){
+    super(props);
     this.state = {
         debitData : [],
         creditData : [],
@@ -60,7 +60,6 @@ accClick(obj){
     
 }
 render(){
-    let arrow = this.state.arrow
     var context = this
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
@@ -97,7 +96,7 @@ render(){
                 <div className='row'>
                 <h6 className='col-8 float-left'>Available Balance</h6>
                 <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].availableBalance}</p>
-                </div>    
+                </div>
             </div>
         </div>
     </div>
@@ -139,8 +138,8 @@ render(){
                     <h6 className='col-8 float-left'>Due Date</h6>
                     <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].dueDate}</p>
                     </div>
-                  
-         
+
+
                 </div>
             </div>
         </div>
@@ -150,7 +149,7 @@ render(){
 
     return(
             <div>
-            <Header/>
+            <Header history = {this.props.history}/>
             <br/>
             <div className="container-fluid">
             <div className="row">
