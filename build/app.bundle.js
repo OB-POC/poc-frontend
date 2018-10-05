@@ -61,7 +61,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -259,6 +259,20 @@ process.umask = function () {
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(12);
+} else {
+  module.exports = __webpack_require__(11);
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ },
+/* 2 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -354,20 +368,6 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 };
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {'use strict';
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(10);
-} else {
-  module.exports = __webpack_require__(9);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -386,7 +386,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 var printWarning = function printWarning() {};
 
 if (process.env.NODE_ENV !== 'production') {
-  var ReactPropTypesSecret = __webpack_require__(6);
+  var ReactPropTypesSecret = __webpack_require__(8);
   var loggedTypeFailures = {};
 
   printWarning = function printWarning(text) {
@@ -462,14 +462,227 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(14);
+  module.exports = __webpack_require__(16);
 } else {
-  module.exports = __webpack_require__(13);
+  module.exports = __webpack_require__(15);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__(7);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var AccountOverview = function (_React$Component) {
+    _inherits(AccountOverview, _React$Component);
+
+    function AccountOverview() {
+        _classCallCheck(this, AccountOverview);
+
+        return _possibleConstructorReturn(this, (AccountOverview.__proto__ || Object.getPrototypeOf(AccountOverview)).apply(this, arguments));
+    }
+
+    _createClass(AccountOverview, [{
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                null,
+                _react2.default.createElement(_Header2.default, null),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'div',
+                        null,
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'table', style: { fontFamily: 'WiproAkkurat-Regular' } },
+                            _react2.default.createElement(
+                                'thead',
+                                { className: 'table-head' },
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'th',
+                                        null,
+                                        'Poll Name'
+                                    ),
+                                    _react2.default.createElement(
+                                        'th',
+                                        null,
+                                        'Votes'
+                                    ),
+                                    _react2.default.createElement(
+                                        'th',
+                                        null,
+                                        'Actions'
+                                    )
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'tbody',
+                                null,
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'What task do you want to accomplish on this wipboard??'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '647'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'How can we improve Wipboard?'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '589'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'How visually appealing is our website?'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '235'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'Artificial Intelligence: Can it replace humans in industrial jobs?'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '765'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'How easy is it to navigate our website?'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '543'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    'tr',
+                                    null,
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        'What do you think about the story we tell through our website?'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        '385'
+                                    ),
+                                    _react2.default.createElement(
+                                        'td',
+                                        null,
+                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
+                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return AccountOverview;
+}(_react2.default.Component);
+
+exports.default = AccountOverview;
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -504,14 +717,81 @@ if (process.env.NODE_ENV === 'production') {
   // DCE check should happen before ReactDOM bundle executes so that
   // DevTools can report bad minification during injection.
   checkDCE();
-  module.exports = __webpack_require__(8);
+  module.exports = __webpack_require__(10);
 } else {
-  module.exports = __webpack_require__(7);
+  module.exports = __webpack_require__(9);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
-/* 6 */
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Header = function (_React$Component) {
+    _inherits(Header, _React$Component);
+
+    function Header() {
+        _classCallCheck(this, Header);
+
+        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
+    }
+
+    _createClass(Header, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "container-fluid" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "card" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "card-header" },
+                        _react2.default.createElement(
+                            "h5",
+                            { className: "float-left" },
+                            "Account Overview"
+                        ),
+                        _react2.default.createElement(
+                            "h6",
+                            { className: "float-right" },
+                            "Logout"
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return Header;
+}(_react2.default.Component);
+
+exports.default = Header;
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -529,7 +809,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 module.exports = ReactPropTypesSecret;
 
 /***/ },
-/* 7 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -540,7 +820,7 @@ module.exports = ReactPropTypesSecret;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */'use strict';var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(2);var _assign=__webpack_require__(1);var checkPropTypes=__webpack_require__(3);var schedule=__webpack_require__(4);var tracing=__webpack_require__(15);/**
+ */'use strict';var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(1);var _assign=__webpack_require__(2);var checkPropTypes=__webpack_require__(3);var schedule=__webpack_require__(4);var tracing=__webpack_require__(17);/**
  * Use invariant() to assert state which your program assumes to be true.
  *
  * Provide sprintf-style format (only %s is supported) and arguments
@@ -3956,7 +4236,7 @@ var reactDom=ReactDOM$3.default||ReactDOM$3;module.exports=reactDom;})();}
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3976,8 +4256,8 @@ var reactDom=ReactDOM$3.default||ReactDOM$3;module.exports=reactDom;})();}
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var aa = __webpack_require__(2),
-    n = __webpack_require__(1),
+var aa = __webpack_require__(1),
+    n = __webpack_require__(2),
     ba = __webpack_require__(4);function ca(a, b, c, d, e, f, g, h) {
   if (!a) {
     a = void 0;if (void 0 === b) a = Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else {
@@ -5988,7 +6268,7 @@ var Nh = { default: Mh },
     Oh = Nh && Mh || Nh;module.exports = Oh.default || Oh;
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6009,7 +6289,7 @@ if (process.env.NODE_ENV !== "production") {
   (function () {
     'use strict';
 
-    var _assign = __webpack_require__(1);
+    var _assign = __webpack_require__(2);
     var checkPropTypes = __webpack_require__(3);
 
     // TODO: this is special because it gets imported during build.
@@ -7714,7 +7994,7 @@ if (process.env.NODE_ENV !== "production") {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7731,7 +8011,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var m = __webpack_require__(1),
+var m = __webpack_require__(2),
     n = "function" === typeof Symbol && Symbol.for,
     p = n ? Symbol.for("react.element") : 60103,
     q = n ? Symbol.for("react.portal") : 60106,
@@ -7873,7 +8153,7 @@ var X = { Children: { map: function map(a, b, d) {
     Z = Y && X || Y;module.exports = Z.default || Z;
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8305,7 +8585,7 @@ if (process.env.NODE_ENV !== "production") {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -8332,7 +8612,7 @@ Object.defineProperty(exports, "__esModule", { value: !0 });var b = 0;exports.__
 };exports.unstable_subscribe = function () {};exports.unstable_unsubscribe = function () {};
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8761,7 +9041,7 @@ if (process.env.NODE_ENV !== "production") {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 "use strict";
@@ -8890,321 +9170,41 @@ exports.unstable_cancelScheduledWork = function (a) {
 };
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(12);
+  module.exports = __webpack_require__(14);
 } else {
-  module.exports = __webpack_require__(11);
+  module.exports = __webpack_require__(13);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ },
-/* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-'use strict';
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(5);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _AccountOverview = __webpack_require__(17);
-
-var _AccountOverview2 = _interopRequireDefault(_AccountOverview);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_reactDom2.default.render(_react2.default.createElement(_AccountOverview2.default, null), document.getElementById('root'));
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Header = __webpack_require__(18);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var AccountOverview = function (_React$Component) {
-    _inherits(AccountOverview, _React$Component);
-
-    function AccountOverview() {
-        _classCallCheck(this, AccountOverview);
-
-        return _possibleConstructorReturn(this, (AccountOverview.__proto__ || Object.getPrototypeOf(AccountOverview)).apply(this, arguments));
-    }
-
-    _createClass(AccountOverview, [{
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                null,
-                _react2.default.createElement(_Header2.default, null),
-                _react2.default.createElement(
-                    'div',
-                    { className: 'container' },
-                    _react2.default.createElement(
-                        'div',
-                        null,
-                        _react2.default.createElement(
-                            'div',
-                            { className: 'table', style: { fontFamily: 'WiproAkkurat-Regular' } },
-                            _react2.default.createElement(
-                                'thead',
-                                { className: 'table-head' },
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Poll Name'
-                                    ),
-                                    _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Votes'
-                                    ),
-                                    _react2.default.createElement(
-                                        'th',
-                                        null,
-                                        'Actions'
-                                    )
-                                )
-                            ),
-                            _react2.default.createElement(
-                                'tbody',
-                                null,
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'What task do you want to accomplish on this wipboard??'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '647'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'How can we improve Wipboard?'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '589'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'How visually appealing is our website?'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '235'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'Artificial Intelligence: Can it replace humans in industrial jobs?'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '765'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'How easy is it to navigate our website?'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '543'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                ),
-                                _react2.default.createElement(
-                                    'tr',
-                                    null,
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        'What do you think about the story we tell through our website?'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        '385'
-                                    ),
-                                    _react2.default.createElement(
-                                        'td',
-                                        null,
-                                        _react2.default.createElement('i', { className: 'fas fa-edit fa-2x edit-button' }),
-                                        _react2.default.createElement('i', { className: 'fas fa-trash-alt fa-2x delete-button' })
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return AccountOverview;
-}(_react2.default.Component);
-
-exports.default = AccountOverview;
 
 /***/ },
 /* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(2);
+var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDom = __webpack_require__(6);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _AccountOverview = __webpack_require__(5);
+
+var _AccountOverview2 = _interopRequireDefault(_AccountOverview);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Header = function (_React$Component) {
-    _inherits(Header, _React$Component);
-
-    function Header() {
-        _classCallCheck(this, Header);
-
-        return _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).apply(this, arguments));
-    }
-
-    _createClass(Header, [{
-        key: "render",
-        value: function render() {
-            return _react2.default.createElement(
-                "div",
-                { className: "container-fluid" },
-                _react2.default.createElement(
-                    "div",
-                    { className: "card" },
-                    _react2.default.createElement(
-                        "div",
-                        { className: "card-header" },
-                        _react2.default.createElement(
-                            "h5",
-                            { className: "float-left" },
-                            "Account Overview"
-                        ),
-                        _react2.default.createElement(
-                            "h6",
-                            { className: "float-right" },
-                            "Logout"
-                        )
-                    )
-                )
-            );
-        }
-    }]);
-
-    return Header;
-}(_react2.default.Component);
-
-exports.default = Header;
+_reactDom2.default.render(_react2.default.createElement(_AccountOverview2.default, null), document.getElementById('root'));
 
 /***/ }
 /******/ ]);
