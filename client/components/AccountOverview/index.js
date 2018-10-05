@@ -1,58 +1,140 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import Services from '../../services/index';
 import Header from '../Header';
 
+import './style.css';
+
 export default class AccountOverview extends React.Component{
-    render(){
-        return(
-            <div>
-                <Header/>
-            <div className="container">
-            <div>
-            <div className="table" style={{fontFamily:'WiproAkkurat-Regular'}}>
-                            <thead className="table-head">
-                                <tr>
-                                    <th>Poll Name</th>
-                                    <th>Votes</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>What task do you want to accomplish on this wipboard??</td>
-                                    <td>647</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
+constructor(){
+    super();
+    this.state = {
+        debitData : [],
+        creditData : []
+    }
+}
 
-                                </tr>
-                                <tr>
-                                    <td>How can we improve Wipboard?</td>
-                                    <td>589</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
+componentWillMount() {
+    var token = sessionStorage.getItem("token");
+    Services.creditCall(token, function(data){
+        this.setState({creditData : data.banks});
+       console.log(data, "data");
+   }.bind(this),function(err){
+       console.log(err);
+   })
+    Services.debitCall(token,function(data){
+        this.setState({debitData : data.banks});
+    }.bind(this),function(err){
+        console.log(err);
+    })
+}
 
-                                </tr>
-                                <tr>
-                                    <td>How visually appealing is our website?</td>
-                                    <td>235</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>Artificial Intelligence: Can it replace humans in industrial jobs?</td>
-                                    <td>765</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>How easy is it to navigate our website?</td>
-                                    <td>543</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                                <tr>
-                                    <td>What do you think about the story we tell through our website?</td>
-                                    <td>385</td>
-                                    <td><i className="fas fa-edit fa-2x edit-button"></i><i className="fas fa-trash-alt fa-2x delete-button"></i></td>
-                                </tr>
-                            </tbody>
-                        </div>
+
+render(){
+ 
+    var debitData = this.state.debitData.map(function(data,i){
+        return(  <div id="accordion">
+        <div className="card">
+        <div className="card-header" id="headingOne">
+        <div className='row'>
+            <h5 className="col-3">{data.bankName}</h5>
+            <h5 className="col-2">{data.accounts[0].accountType}</h5>
+            <h5 className="col-3">{data.accounts[0].interestRate}% <small>Interest</small></h5>
+            <h5 className="col-2"><span>&#163;</span>{data.accounts[0].availableBalance}</h5>
+            <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="false" aria-controls={i+"d"}></i></h5> 
+          </div>
+        </div>
+        <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
+            <div className="card-body">
+                <div className='row'>
+                <h6 className='col-8 float-left'>{data.accounts[0].accountTitle}</h6>
+                <p><small>{data.accounts[0].accountNumber}</small></p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].balance}</p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Standing Instructions</h6>
+                <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].standingInst}</p>
+                </div>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Minimum Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].minBalance}</p>
+                </div>
+                <hr/>
+                <div className='row'>
+                <h6 className='col-8 float-left'>Available Balance</h6>
+                <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].availableBalance}</p>
+                </div>    
             </div>
-               
+        </div>
+    </div>
+    </div>);
+    })
+
+    var creditData = this.state.creditData.map(function(data,i){
+        return(
+            <div id="accordion">
+            <div className="card">
+            <div className="card-header" id="headingOne">
+            <div className='row'>
+                <h5 className="col-4">{data.bankName}</h5>
+                <h5 className="col-2">{data.accounts[0].accountType}</h5>
+                <h5 className="col-2">{data.accounts[0].apr}% <small>APR</small></h5>
+                <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
+                <h5 className="col-2"><i className="fas fa-caret-down" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"}></i></h5> 
+              </div>
+            </div>
+            <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
+                <div className="card-body">
+                    <div className='row'>
+                    <h6 className='col-8 float-left'>{data.accounts[0].accountTitle}</h6>
+                    <p><small>{data.accounts[0].accountNumber}</small></p>
+                    </div>
+                    <div className='row'>
+                    <h6 className='col-8 float-left'>Credit Limit</h6>
+                    <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].creditLimit}</p>
+                    </div>
+                    <div className='row'>
+                    <h6 className='col-8 float-left'>Available Credit</h6>
+                    <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].availableCredit}</p>
+                    </div>
+                    <div className='row'>
+                    <h6 className='col-8 float-left'>Minimum Balance Due</h6>
+                    <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].minBalanceDue}</p>
+                    </div>
+                    <div className='row'>
+                    <h6 className='col-8 float-left'>Due Date</h6>
+                    <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].dueDate}</p>
+                    </div>
+                  
+         
+                </div>
+            </div>
+        </div>
+        </div>
+        )
+    })
+
+    return(
+            <div>
+            <Header/>
+            <br/>
+            <div className="container-fluid">
+            <div className="row">
+                <div className="col-md-6 savings">
+                  <h5>Balances</h5>
+                    {debitData}
+                </div>
+
+                <div className="col-md-6 credits">
+                  <h5>Credit Outstanding</h5>
+                    {creditData}
+                </div>
+            </div>
+                <br/>
+               <div className="float-right"><Link to='/plan'><button className="btn btn-info">Pay Out Plan</button></Link></div>
             </div>
             </div>
         );
