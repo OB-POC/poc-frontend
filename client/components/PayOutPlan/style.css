@@ -5,10 +5,18 @@
 }
 
 .match-header{
-    background: #3f3e3e;
+    background: #006a4d;
     color: #fff;
 }
 
 .match-footer{
-    background: #858282;
+    background: #525352;
+}
+
+.best-match-layout{
+    border: 4px solid #006a4d;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }

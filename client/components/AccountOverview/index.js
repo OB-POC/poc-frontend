@@ -6,6 +6,7 @@ import Header from '../Header';
 import ReactLoading from 'react-loading'
 
 import './style.css';
+import PayOutPlan from '../PayOutPlan';
 
 export default class AccountOverview extends React.Component{
 constructor(props){
@@ -15,7 +16,9 @@ constructor(props){
         creditData : [],
         arrow: 'fas fa-caret-down',
         downArrow: 'fas fa-caret-up',
-        flag: false
+        flag: false,
+        payButton : true,
+        load : true
     }
    this.handleScrollToElement = this.handleScrollToElement.bind(this);
    this.accClick = this.accClick.bind(this);
@@ -24,9 +27,13 @@ constructor(props){
 handleScrollToElement(event) {
     event.preventDefault()
     const tesNode = ReactDOM.findDOMNode(this.inputElement)
-     
-      tesNode.scrollIntoView();
-      
+      tesNode.scrollIntoView();   
+      this.setState({load:false}); 
+      setTimeout(function(){
+        this.setState({load:true}); 
+        this.setState({payButton:false});
+        tesNode.scrollIntoView(); 
+    }.bind(this),2000);  
 }
 
 componentWillMount() {
@@ -64,7 +71,7 @@ render(){
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
         <div className="card">
-        <div className="card-header" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" 
+        <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" 
         aria-controls={i+"d"} onClick={context.accClick.bind(context,i+"dd")} tabIndex='1'>
         <div className='row'>
             <h5 className="col-3">{data.bankName}</h5>
@@ -106,7 +113,7 @@ render(){
         return(
             <div id="accordion">
             <div className="card">
-            <div className="card-header" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"} 
+            <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"} 
             onClick={context.accClick.bind(context,i+"cc")} tabIndex='1'>
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
@@ -164,12 +171,12 @@ render(){
                 </div>
             </div>
                 <br/>
-               <div className='row'><div className='col-6'><Link to='/plan'><button className="btn btn-info float-right">Pay Out Plan</button></Link></div>
-            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>
-               <div className="float-right"><button className="btn btn-info" onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
+                {this.state.payButton?
+               <div className='row'><div className='col-6'><button className="btn btn-dark float-right"  style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
+            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>:<PayOutPlan/>}
             </div>
             <div ref={input => this.inputElement = input}>
-                <ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} />
+               {this.state.load?null:<center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>}
                 
             </div>
             </div>
