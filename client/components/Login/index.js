@@ -1,6 +1,5 @@
 import React from 'react';
 import services from '../../services'
-import { HashRouter as Router } from 'react-router-dom'
 
 export default class PayOutPlan extends React.Component{
   constructor(props){
@@ -25,7 +24,7 @@ onLogin(){
   }.bind(this),function (err) {
     throw(new Error(err.responseText))
   })
-  
+
 }
     render(){
         return(
