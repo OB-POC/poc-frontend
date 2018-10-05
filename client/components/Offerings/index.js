@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import { Jumbotron, Button, Modal, ModalHeader, ModalBody, ModalFooter,Table } from 'reactstrap';
 //import './style.css'
+import ReactLoading from 'react-loading'
 
 export default class Offerings extends React.Component{
 
