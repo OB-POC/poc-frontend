@@ -65,7 +65,7 @@ render(){
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
         <div className="card">
-        <div className="card-header" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="false" 
+        <div className="card-header" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" 
         aria-controls={i+"d"} onClick={context.accClick.bind(context,i+"dd")} tabIndex='1'>
         <div className='row'>
             <h5 className="col-3">{data.bankName}</h5>
