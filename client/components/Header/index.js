@@ -2,6 +2,11 @@ import React from 'react';
 import './style.css';
 
 export default class Header extends React.Component{
+  constructor(){
+     super();
+     if(!sessionStorage.getItem("token"))
+      this.props.history.push('login')
+   }
     render(){
         return(
             <div className="container-fluid header">
@@ -11,7 +16,7 @@ export default class Header extends React.Component{
                     <h6 className="float-right">Logout</h6>
                 </div>
             </div>
-               
+
             </div>
         );
     }
