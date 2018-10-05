@@ -25,10 +25,9 @@ handleValue(e) {
 
     render(){
         return(
-            <div>
-            <Header/>
-            <br/>
-            <div className="container-fluid" >
+            <div className="container best-match-layout">
+             <center> 
+             <h4><b style={{color:'#0ACA24'}}>Congratulations</b></h4> <h6 style={{fontSize:'22px'}}>Found the Best Match for you, following which , you will be saving <span>&#163;</span>200</h6>   </center>     
             <div className="row">
             <div className="card col-xs-4 match-card">
                 <div className="card-header match-header">
@@ -87,7 +86,7 @@ handleValue(e) {
                 </div>
                 <div className="card-footer match-footer">
                 <div className='row'>
-                    <h6 className='col-8 float-left'>Balance Due</h6>
+                    <h6 className='col-8 float-left' style={{color:'#fff'}}>Balance Due</h6>
                     <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span> 0</h6>
                 </div>
                 </div>
@@ -125,10 +124,9 @@ handleValue(e) {
             </div>   
             </div>
             <br/>
-               <center> <h6 style={{fontSize:'22px'}}> <b style={{color:'#0ACA24',fontSize:'22px'}}>Congratulations</b>, By following the best match practice , you will be saving <span>&#163;</span>200</h6>   </center>     
-               <button className="btn btn-info float-right">Make Payment</button>
+              <center> <button className="btn btn-dark" style={{backgroundColor:'#e0405f'}} >Make Payment</button></center>
             </div>
-            </div>
+       
         );
     }
 }
