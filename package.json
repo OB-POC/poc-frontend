@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack -w",
     "build": "webpack -p",
+    "serve": "node server.js",
     "test": "echo \"NO TEST SPECIFIED\""
   },
   "author": "priyanka",
