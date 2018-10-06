@@ -91,8 +91,8 @@ render(){
         <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
             <div className="card-body">
                 <div className='row'>
-                <h4 className='col-8 float-left' style={{color:'#08c908'}}>{data.accounts[0].accountTitle}</h4>
-                <p style={{color:'#08c908'}}><b>{data.accounts[0].accountNumber}</b></p>
+                <h5 className='col-8 float-left' style={{color:'#08c908',fontSize:'24px'}}><b>{data.accounts[0].accountTitle}</b></h5>
+                <p style={{color:'#08c908',fontSize:'20px'}}><b>{data.accounts[0].accountNumber}</b></p>
                 </div>
                 <div className='row'>
                 <h6 className='col-8 float-left'>Account Balance</h6>
@@ -128,7 +128,7 @@ render(){
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
                 <h5 className="col-2">{data.accounts[0].accountType}</h5>
-                <h5 className="col-2">{data.accounts[0].interestRate}% <small>Interest</small></h5>
+                <h5 className="col-2">{data.accounts[0].interestRate}% <small>APR</small></h5>
                 <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
                 <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5>
               </div>
@@ -136,8 +136,8 @@ render(){
             <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
                 <div className="card-body">
                     <div className='row'>
-                    <h4 className='col-8 float-left' style={{color:'#08c908'}}>{data.accounts[0].accountTitle}</h4>
-                    <p  style={{color:'#08c908'}}><b>{data.accounts[0].accountNumber}</b></p>
+                    <h5 className='col-8 float-left' style={{color:'#08c908',fontSize:'24px'}}><b>{data.accounts[0].accountTitle}</b></h5>
+                    <p style={{color:'#08c908',fontSize:'20px'}}><b>{data.accounts[0].accountNumber}</b></p>
                     </div>
                     <div className='row'>
                     <h6 className='col-8 float-left'>Minimum Monthly Payment</h6>
@@ -148,8 +148,8 @@ render(){
                     <p className='col-4 float-right'>{data.accounts[0].remainingFullTerm}</p>
                     </div>
                     <div className='row'>
-                    <h6 className='col-8 float-left'>Minimum Balance Due</h6>
-                    <p className='col-4 float-right'><span>&#163;</span>{data.accounts[0].minBalanceDue}</p>
+                    <h6 className='col-8 float-left'>Interest Rate</h6>
+                    <p className='col-4 float-right'>{data.accounts[0].interestRate} %</p>
                     </div>
                     <div className='row'>
                     <h6 className='col-8 float-left'>Due Date</h6>
@@ -182,8 +182,8 @@ render(){
                 <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
                     <div className="card-body">
                         <div className='row'>
-                        <h4 className='col-8 float-left' style={{color:'#08c908'}}>{data.accounts[0].accountTitle}</h4>
-                        <p  style={{color:'#08c908'}}><b>{data.accounts[0].accountNumber}</b></p>
+                        <h5 className='col-8 float-left' style={{color:'#08c908',fontSize:'24px'}}><b>{data.accounts[0].accountTitle}</b></h5>
+                        <p style={{color:'#08c908',fontSize:'20px'}}><b>{data.accounts[0].accountNumber}</b></p>
                         </div>
                         <div className='row'>
                         <h6 className='col-8 float-left'>Credit Limit</h6>
@@ -215,23 +215,24 @@ render(){
             <div>
             <Header history = {this.props.history} header='ACCOUNT OVERVIEW'/>
             <br/>
-            <div className="container-fluid">
-            <div className="row">
-                <div className="col-md-6 savings">
+            <div className='d-flex flex-column'>
+            <div className='p-2'>
+                <div className="savings" style={{width: '50%', float:'left'}}>
                   <h5>Debit Balances</h5>
                     {debitData}
                 </div>
 
-                <div className="col-md-6 credits">
+                <div className="credits" style={{width: '50%', float:'right'}}>
                   <h5>Credit Balances</h5>
                     {creditData}
                 </div>
             </div>
+            <div className='p-2'>
                 <br/>
                 {this.state.payButton?
-               <div className='row'><div className='col-6'><button className="btn btn-dark float-right"  style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
-            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>:<PayOutPlan payOutData = {this.state.payOutData} history = {this.props.history}/>}
-            </div>
+               <center><button className="btn btn-dark"  style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></center>
+         :<PayOutPlan payOutData = {this.state.payOutData} history = {this.props.history}/>}
+            </div></div>
             <div ref={input => this.inputElement = input}>
                {this.state.load?null:<center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>}
             </div>
