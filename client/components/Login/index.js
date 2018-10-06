@@ -65,7 +65,7 @@ borderTop: "1px solid rgba(0, 0, 0, 0.1)"
                   <input class="form-check-input"  type="checkbox"/> Remember me
                 </label>
               </div>
-              <button type="submit" class="btn btn-primary" onClick = {this.onLogin} >Login</button>
+              <button type="submit" class="btn btn-dark" style={{backgroundColor:'#e0405f'}} onClick = {this.onLogin} >Login</button>
               </div>
               <div class="col-7"></div>
               </div>
