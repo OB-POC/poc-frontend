@@ -28,7 +28,7 @@ onLogin(){
 }
     render(){
         return(
-            <div>
+            <div className="container-fluid">
             <div class="row">
                 <div class="col-1"></div>
                 <div class="col-4">

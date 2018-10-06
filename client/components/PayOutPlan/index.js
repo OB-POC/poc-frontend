@@ -31,7 +31,6 @@ makePaymentClick(){
         var payOffs = ''
         var payOutData = this.props.payOutData['creditDebitMatch'].map(function (data,i) {
           payOffs = data.senders.map(function (data1, i) {
-            console.log(data1, 'daat1');
             return(
               <div className='row'>
                   <p className='col-8 float-left'>{data1.accountTitle} (<span>&#163;</span> {data1.contributingAmount})</p>
@@ -39,12 +38,11 @@ makePaymentClick(){
               </div>
             )
           });
-        
+      
         return(
             <div className="card col-xs-4 match-card">
                 <div className="card-header match-header">
                 <b className="float-left">{data.accountTitle}</b>
-
                 {data.clearedTotalDue ? <i className="far fa-check-square fa-2x float-right" style={{color:"#0ACA24"}}></i>:null}
                 </div>
                 <div className="card-body">
@@ -54,7 +52,7 @@ makePaymentClick(){
                 </div>
                 <br/>
                 <div className='row'>
-                    <h6 className='col-8 float-left'>Payoff from : </h6>
+                    <h6 className='col-8 float-left'>Payoff from : </h6><i className='fas fa-pen' style={{paddingLeft:'80px'}}></i>
                 </div>
                 {payOffs}
                 </div>
@@ -67,6 +65,7 @@ makePaymentClick(){
             </div>
           )
         })
+
         return(
             <div className="container best-match-layout">
              <center>
@@ -75,7 +74,7 @@ makePaymentClick(){
             {payOutData}
             </div>
             <br/>
-              <center> <button className="btn btn-dark" style={{backgroundColor:'#e0405f'}} onClick = {this.makePaymentClick.bind(this)} >Make Payment</button></center>
+              <center> <button className="btn btn-dark" style={{backgroundColor:'#e0405f',paddingTop:'4px'}} onClick = {this.makePaymentClick.bind(this)} >Make Payment</button></center>
             </div>
 
         );
