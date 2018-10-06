@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from '../Header';
+import {Link} from 'react-router-dom';
+import Offerings from '../Offerings';
 import './style.css';
 
 export default class PayOutPlan extends React.Component{
@@ -8,7 +9,7 @@ constructor(){
     super();
     this.state= {
         edit: false,
-        creditValue:'10000',
+        creditValue:'200',
     }
     this.handleEdit = this.handleEdit.bind(this); 
     this.handleValue = this.handleValue.bind(this); 
@@ -23,7 +24,7 @@ handleValue(e) {
     this.setState({creditValue:e.target.value});
 }
 
-    render(){
+  render(){
         return(
             <div className="container best-match-layout">
              <center> 
@@ -46,7 +47,7 @@ handleValue(e) {
                 </div>
                 <div className='row'>
                     <p className='col-8 float-left'>Hallifax (<span>&#163;</span> 1000)</p>
-                    <p>(-) <span>&#163;</span> 200 </p>
+                    <p>(-) <span>&#163;</span>{this.state.edit?<input type='text' style={{width:'60px'}} value={this.state.creditValue} onChange={this.handleValue} />:this.state.creditValue } </p><i className='fas fa-pen' style={{padding:'2px'}} onClick={this.handleEdit}></i>
                 </div>
                 <div className='row'>
                     <p className='col-8 float-left'>HSBC (<span>&#163;</span> 6000)</p>
@@ -55,7 +56,7 @@ handleValue(e) {
                 </div>
                 <div className="card-footer match-footer">
                 <div className='row'>
-                    <h6 className='col-8 float-left'>Balance Due</h6>
+                    <h6 className='col-8 float-left' style={{color:'#fff'}}>Balance Due</h6>
                     <h6 style={{color:'#0ACA24'}} className="float-right"><b> <span>&#163;</span> 0</b></h6>
                 </div>
                 </div>
@@ -117,14 +118,14 @@ handleValue(e) {
                 </div>
                 <div className="card-footer match-footer">
                 <div className='row'>
-                    <h6 className='col-8 float-left'>Balance Due</h6>
+                    <h6 className='col-8 float-left' style={{color:'#fff'}}>Balance Due</h6>
                     <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span> 0</h6>
                 </div>
                 </div>
             </div>   
             </div>
             <br/>
-              <center> <button className="btn btn-dark" style={{backgroundColor:'#e0405f'}} >Make Payment</button></center>
+              <center><Link to='/offerings'><button className="btn btn-dark" style={{backgroundColor:'#e0405f'}} >Make Payment</button></Link></center>
             </div>
        
         );

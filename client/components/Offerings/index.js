@@ -29,9 +29,7 @@ componentDidMount(){
 
 
 toggle() {
-    this.setState({
-      modal: !this.state.modal
-    });
+   window.location = 'https://www.lloydsbank.com/credit-cards.asp?#all';
   }
 
 
@@ -43,7 +41,7 @@ toggle() {
        const info = user == 'debit' ? debitInfo+' '+debitAccountType+' account' : creditInfo
        return(
            <div>
-           <Header heading='Offerings' style={{marginBottom:'80px'}}/>
+           <Header header='OFFERINGS' style={{marginBottom:'80px'}}/>
            <br/>
            <div className="container-fluid">
            <div className="row">
@@ -122,79 +120,12 @@ toggle() {
                                 </Jumbotron>
                             </Jumbotron>
                         <center>
-                            <h6>Estimates Savings Savings:
+                            <h6>Estimates Savings:
                                     <b>11000</b></h6>
 
                                     <br/>
-                            <div ><button className="btn btn-info" onClick={this.toggle}>Apply Now</button></div>
-                            <div>
-                                {
-                                    modal?
-                                    <div>
-                                    {user=='debit' ?
+                            <div ><button className="btn btn-dark" style={{backgroundColor:'#e0405f'}} onClick={this.toggle}>Apply Now</button></div>
 
-                                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                                        <ModalHeader toggle={this.toggle} >New savings account plan info</ModalHeader>
-                                        <ModalBody>
-                                            <div className='headerStyle'>
-
-                                            </div>
-                                            <Table bordered>
-                                                <thead>
-                                                <tr>
-                                                    <th>Bank</th>
-                                                    <th>Type</th>
-                                                    <th>Savings interest</th>
-                                                    <th>You save</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>LBG</td>
-                                                    <td>Platinum</td>
-                                                    <td>1.25 %</td>
-                                                    <td>100 <span>&#163;</span></td>
-                                                </tr>
-                                                </tbody>
-                                            </Table>
-                                        </ModalBody>
-                                        <ModalFooter>
-                                            <Button className="btn btn-info" onClick={this.toggle}>okay</Button>{' '}
-                                        </ModalFooter>
-                                    </Modal>:
-                                    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                                        <ModalHeader toggle={this.toggle} >New credit accounts plan info</ModalHeader>
-                                        <ModalBody>
-                                            <div className='headerStyle'>
-
-                                            </div>
-                                            <Table bordered>
-                                                <thead>
-                                                <tr>
-                                                    <th>Bank</th>
-                                                    <th>Introductory rate(24 months)</th>
-                                                    <th>Regular interest rate</th>
-                                                    <th>You save</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td>LBG</td>
-                                                    <td>20%</td>
-                                                    <td>24%</td>
-                                                    <td>200 <span>&#163;</span></td>
-                                                </tr>
-                                                </tbody>
-                                            </Table>
-                                        </ModalBody>
-                                        <ModalFooter>
-                                            <Button className="btn btn-info" onClick={this.toggle}>okay</Button>{' '}
-                                        </ModalFooter>
-                                    </Modal>}
-                                    </div>:
-                                    null
-                                }
-                            </div>
                         </center>
                     </div>
             </div>
@@ -204,3 +135,74 @@ toggle() {
        );
    }
 }
+
+
+
+/* <div>
+{
+    modal?
+    <div>
+    {user=='debit' ?
+
+    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <ModalHeader toggle={this.toggle} >New savings account plan info</ModalHeader>
+        <ModalBody>
+            <div className='headerStyle'>
+
+            </div>
+            <Table bordered>
+                <thead>
+                <tr>
+                    <th>Bank</th>
+                    <th>Type</th>
+                    <th>Savings interest</th>
+                    <th>You save</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>LBG</td>
+                    <td>Platinum</td>
+                    <td>1.25 %</td>
+                    <td>100 <span>&#163;</span></td>
+                </tr>
+                </tbody>
+            </Table>
+        </ModalBody>
+        <ModalFooter>
+            <Button className="btn btn-info" onClick={this.toggle}>okay</Button>{' '}
+        </ModalFooter>
+    </Modal>:
+    <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <ModalHeader toggle={this.toggle} >New credit accounts plan info</ModalHeader>
+        <ModalBody>
+            <div className='headerStyle'>
+
+            </div>
+            <Table bordered>
+                <thead>
+                <tr>
+                    <th>Bank</th>
+                    <th>Introductory rate(24 months)</th>
+                    <th>Regular interest rate</th>
+                    <th>You save</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>LBG</td>
+                    <td>20%</td>
+                    <td>24%</td>
+                    <td>200 <span>&#163;</span></td>
+                </tr>
+                </tbody>
+            </Table>
+        </ModalBody>
+        <ModalFooter>
+            <Button className="btn btn-info" onClick={this.toggle}>okay</Button>{' '}
+        </ModalFooter>
+    </Modal>}
+    </div>:
+    null
+}
+</div> */

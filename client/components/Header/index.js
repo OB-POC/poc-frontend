@@ -17,7 +17,7 @@ export default class Header extends React.Component{
             <div className="container-fluid header">
             <div className="card">
                 <div className="card-header heading">
-                    <h5 className="float-left">ACCOUNT OVERVIEW</h5>
+                    <h5 className="float-left">{this.props.header}</h5>
                     <button className="btn float-right" onClick = {this.logoutClick}><h6>Logout</h6></button>
                 </div>
             </div>
