@@ -47,7 +47,7 @@ componentWillMount() {
     var token = sessionStorage.getItem("token");
     Services.creditCall(token, function(data){
         this.setState({creditData : data.banks});
-      
+
    }.bind(this),function(err){
        console.log(err);
    })
@@ -128,9 +128,9 @@ render(){
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
                 <h5 className="col-2">{data.accounts[0].accountType}</h5>
-                <h5 className="col-2">{data.accounts[0].interestRate}% <small>APR</small></h5>
+                <h5 className="col-3">{data.accounts[0].interestRate}% <small>APR</small></h5>
                 <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
-                <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5>
+                <h5 className="col-1"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5>
               </div>
             </div>
             <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -169,14 +169,14 @@ render(){
             return(
                 <div id="accordion">
                 <div className="card">
-                <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"} 
+                <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"}
                 onClick={context.accClick.bind(context,i+"cc")} tabIndex='1'>
                 <div className='row'>
                     <h5 className="col-4">{data.bankName}</h5>
                     <h5 className="col-2">{data.accounts[0].accountType}</h5>
-                    <h5 className="col-2">{data.accounts[0].apr}% <small>APR</small></h5>
+                    <h5 className="col-3">{data.accounts[0].apr}% <small>APR</small></h5>
                     <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
-                    <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5> 
+                    <h5 className="col-1"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5>
                   </div>
                 </div>
                 <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -201,8 +201,8 @@ render(){
                         <h6 className='col-8 float-left'>Due Date</h6>
                         <p className='col-4 float-right'>{dueDate}</p>
                         </div>
-    
-    
+
+
                     </div>
                 </div>
             </div>

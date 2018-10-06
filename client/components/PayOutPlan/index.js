@@ -70,7 +70,7 @@ makePaymentClick(){
                 <div className="card-footer match-footer">
                 <div className='row'>
                     <h6 className='col-8 float-left' style={{color:'#fff'}}>Balance Due</h6>
-                    <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span>{data.clearedTotalDue ? 0 : context.props.payOutData.totalAvailableBalance}</h6>
+                    <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span>{data.clearedTotalDue ? 0 : context.props.payOutData.totalAvailableBalance * -1}</h6>
                 </div>
                 </div>
             </div>
@@ -83,7 +83,7 @@ makePaymentClick(){
             <div className="container best-match-layout">
              <center>
              <h4><b style={{color:'#0ACA24'}}>Congratulations</b></h4>
-             <h6 style={{fontSize:'22px'}}>Found the Best Match for you, following which , you will be {savings} <span>&#163;</span>{this.props.payOutData.totalAvailableBalance} {only}
+             <h6 style={{fontSize:'22px'}}>Found the Best Match for you, following which , you will be {savings} <span>&#163;</span>{this.props.payOutData.totalAvailableBalance * -1} {only}
              {!this.state.edit ?
                <i className='fas fa-pen float-right' style={{paddingLeft:'80px'}} onClick={context.handleEdit}></i>:
                <i className='fas fa-check float-right' style={{paddingLeft:'80px',color: '#0ACA24'}} onClick={context.handleEdit}></i>
