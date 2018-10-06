@@ -42,5 +42,35 @@ payOutCall: function(queryData,successCb,errorCb) {
     success : successCb,
     error : errorCb
   })
+},
+payOutCall: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.payOutUrl+"/calculateBestMatch",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
+makePaymentCall: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.payOutUrl+"/makePayment",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
+},
+offeringCall: function(queryData,successCb,errorCb) {
+  $.ajax({
+    type :"GET",
+    url : config.offeringsUrl+"/cardDetails",
+    headers: {"x-access-token": queryData},
+    contentType : "application/json",
+    success : successCb,
+    error : errorCb
+  })
 }
 }
