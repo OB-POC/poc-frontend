@@ -14,8 +14,7 @@ constructor(props){
     this.state = {
         debitData : [],
         creditData : [],
-        arrow: 'fas fa-caret-down',
-        downArrow: 'fas fa-caret-up',
+        payOutData: {},
         flag: false,
         payButton : true,
         load : true,
@@ -28,13 +27,20 @@ constructor(props){
 handleScrollToElement(event) {
     event.preventDefault()
     const tesNode = ReactDOM.findDOMNode(this.inputElement)
-      tesNode.scrollIntoView();   
-      this.setState({load:false}); 
+      tesNode.scrollIntoView();
+      this.setState({load:false});
       setTimeout(function(){
-        this.setState({load:true}); 
+        this.setState({load:true});
         this.setState({payButton:false});
-        tesNode.scrollIntoView(); 
-    }.bind(this),2000);  
+        tesNode.scrollIntoView();
+    }.bind(this),2000);
+    var token = sessionStorage.getItem("token");
+    Services.payOutCall(token, function(data){
+        this.setState({payOutData : data});
+       console.log(data, "data");
+   }.bind(this),function(err){
+       console.log(err);
+   })
 }
 
 componentWillMount() {
@@ -65,21 +71,21 @@ accClick(obj){
         flag: true
     })
     }
-    
+
 }
 render(){
     var context = this
     var debitData = this.state.debitData.map(function(data,i){
         return(  <div id="accordion">
         <div className="card">
-        <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true" 
+        <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true"
         aria-controls={i+"d"} onClick={context.accClick.bind(context,i+"dd")} tabIndex='1'>
         <div className='row'>
             <h5 className="col-3">{data.bankName}</h5>
             <h5 className="col-2">{data.accounts[0].accountType}</h5>
             <h5 className="col-3">{data.accounts[0].interestRate}% <small>AER</small></h5>
             <h5 className="col-2"><span>&#163;</span>{data.accounts[0].availableBalance}</h5>
-            <h5 className="col-2"><i id = {i+"dd"} className='fas fa-caret-down'></i></h5> 
+            <h5 className="col-2"><i id = {i+"dd"} className='fas fa-caret-down'></i></h5>
           </div>
         </div>
         <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -117,14 +123,14 @@ render(){
         return(
             <div id="accordion">
             <div className="card">
-            <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"} 
+            <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"c"} aria-expanded="true" aria-controls={i+"c"}
             onClick={context.accClick.bind(context,i+"cc")} tabIndex='1'>
             <div className='row'>
                 <h5 className="col-4">{data.bankName}</h5>
                 <h5 className="col-2">{data.accounts[0].accountType}</h5>
                 <h5 className="col-2">{data.accounts[0].interestRate}% <small>Interest</small></h5>
                 <h5 className="col-2"><span>&#163;</span>{data.accounts[0].totalBalanceDue}</h5>
-                <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5> 
+                <h5 className="col-2"><i id = {i+ "cc"} className='fas fa-caret-down'></i></h5>
               </div>
             </div>
             <div id={i+"c"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
@@ -223,12 +229,11 @@ render(){
             </div>
                 <br/>
                 {this.state.payButton?
-               <div className='row'><div className='col-6'><button className="btn btn-dark float-right" style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
-            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>:<PayOutPlan/>}
+               <div className='row'><div className='col-6'><button className="btn btn-dark float-right"  style={{backgroundColor:'#e0405f'}} onClick={this.handleScrollToElement}>Pay Out Plan</button></div>
+            <div className='col-6'> <Link to='/'><button className="btn btn-default">Back</button></Link></div></div>:<PayOutPlan payOutData = {this.state.payOutData} history = {this.props.history}/>}
             </div>
             <div ref={input => this.inputElement = input}>
                {this.state.load?null:<center><ReactLoading type='bubbles' color='black' height={'20%'} width={'20%'} /></center>}
-                
             </div>
             </div>
         );
