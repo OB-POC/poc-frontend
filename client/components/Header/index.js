@@ -6,6 +6,8 @@ import { HashRouter as Router } from 'react-router-dom'
 export default class Header extends React.Component{
   constructor(props){
     super(props);
+    if(!sessionStorage.getItem('token'))
+      this.props.history.push('/')
     this.logoutClick = this.logoutClick.bind(this)
   }
   logoutClick(){
