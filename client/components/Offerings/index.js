@@ -48,8 +48,8 @@ toggle() {
 
 render(){
   console.log(this.state.timer)
-       const {debitMessage,creditMessage,modal,user,creditInfoHeading,debitInfoHeading,creditInfo,debitInfo,debitAccountType} = this.state
-       const message = user == 'debit' ? debitMessage : creditMessage
+       const {debitMessage,creditMessage,modal,user,creditInfoHeading,debitInfoHeading,creditInfo,debitInfo,debitAccountType,type} = this.state
+       const message = type > 0 ? debitMessage : creditMessage
        const infoHeading = user == 'debit' ? debitInfoHeading : creditInfoHeading
        const info = user == 'debit' ? debitInfo+' '+debitAccountType+' account' : creditInfo
 
