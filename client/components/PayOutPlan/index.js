@@ -70,20 +70,20 @@ makePaymentClick(){
                 <div className="card-footer match-footer">
                 <div className='row'>
                     <h6 className='col-8 float-left' style={{color:'#fff'}}>Balance Due</h6>
-                    <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span>{data.clearedTotalDue ? 0 : context.props.payOutData.totalAvailableBalance * -1}</h6>
+                    <h6 style={{color:'#0ACA24'}} className="float-right"><span>&#163;</span>{data.clearedTotalDue ? 0 : Math.abs(context.props.payOutData.totalAvailableBalance)}</h6>
                 </div>
                 </div>
             </div>
           )
         })
-        var savings = this.props.payOutData.totalAvailableBalance < 0 ? 'deficit of' : 'savings'
+        var savings = this.props.payOutData.totalAvailableBalance < 0 ? 'having a deficit of' : 'saving'
         var only = this.props.payOutData.totalAvailableBalance < 0 ? 'only' : ''
         console.log(savings,'savings');
         return(
             <div className="container best-match-layout">
              <center>
              <h4><b style={{color:'#0ACA24'}}>Congratulations</b></h4>
-             <h6 style={{fontSize:'22px'}}>Found the Best Match for you, following which , you will be {savings} <span>&#163;</span>{this.props.payOutData.totalAvailableBalance * -1} {only}
+             <h6 style={{fontSize:'22px'}}>Found the Best Match for you, following which , you will be {savings} <span>&#163;</span>{Math.abs(this.props.payOutData.totalAvailableBalance)} {only}
              {!this.state.edit ?
                <i className='fas fa-pen float-right' style={{paddingLeft:'80px'}} onClick={context.handleEdit}></i>:
                <i className='fas fa-check float-right' style={{paddingLeft:'80px',color: '#0ACA24'}} onClick={context.handleEdit}></i>

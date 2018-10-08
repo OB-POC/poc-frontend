@@ -10,7 +10,7 @@ export default class Offerings extends React.Component{
 constructor(){
    super();
    this.state= {
-       debitMessage : 'You might save more by switching to savings accounts with higher interest rates',
+       debitMessage : 'You might be saving significantly more by transferring your balance to our current account with higher interest rate',
        creditMessage : 'You might realize significant monthly interest savings by transferring your higher rate credit card balances to a lower rate credit card',
        modal: false,
        user:'credit',
@@ -75,7 +75,7 @@ else{
                       </center>
                           <Jumbotron style={{marginLeft:'30px',marginRight:'30px',padding:'0px',backgroundColor:'yellow'}}>
 
-                              <p className="lead" style={{padding:'20px'}}>{message}</p>
+                              <center><p className="lead" style={{padding:'20px'}}>{message}</p></center>
                           </Jumbotron>
                           <Jumbotron style={{paddingTop:'20px',marginLeft:'30px',marginRight:'30px'}}>
                                 <h3>Offerings</h3>

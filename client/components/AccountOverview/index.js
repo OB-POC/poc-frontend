@@ -81,11 +81,11 @@ render(){
         <div className="card-header heading" id="headingOne" data-toggle="collapse" data-target={"#"+i+"d"} aria-expanded="true"
         aria-controls={i+"d"} onClick={context.accClick.bind(context,i+"dd")} tabIndex='1'>
         <div className='row'>
-            <h5 className="col-3">{data.bankName}</h5>
+            <h5 className="col-4">{data.bankName}</h5>
             <h5 className="col-2">{data.accounts[0].accountType}</h5>
             <h5 className="col-3">{data.accounts[0].interestRate}% <small>AER</small></h5>
             <h5 className="col-2"><span>&#163;</span>{data.accounts[0].availableBalance}</h5>
-            <h5 className="col-2"><i id = {i+"dd"} className='fas fa-caret-down'></i></h5>
+            <h5 className="col-1"><i id = {i+"dd"} className='fas fa-caret-down'></i></h5>
           </div>
         </div>
         <div id={i+"d"} className="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
