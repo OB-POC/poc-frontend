@@ -7,7 +7,17 @@
     "start": "webpack -w",
     "build": "webpack -p",
     "serve": "node server.js",
-    "test": "echo \"NO TEST SPECIFIED\""
+    "test": "node_modules/.bin/jest",
+    "test:watch": "node_modules/.bin/jest --watch"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./client/__tests__/setup/setupTests.js",
+    "testPathIgnorePatterns": [
+      "./client/__tests__/setup/"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/react-runtime"
+    ]
   },
   "author": "priyanka",
   "license": "ISC",
@@ -30,6 +40,14 @@
     "webpack": "2.1.0-beta.22"
   },
   "devDependencies": {
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-2": "^6.24.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0",
+    "jest-enzyme": "^6.1.2",
     "webpack-cli": "3.1.2"
   }
 }
